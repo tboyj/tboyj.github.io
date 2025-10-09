@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Verdana', sans-serif;
+    font-family: 'DM Sans', Verdana,  Tahoma, sans-serif;
 }
 .icon {
     margin-top:10px;
@@ -17,7 +17,7 @@ nav {
     height: 50px;
     align-items: center;
     background-color: black;
-    
+    font-family: 'Space Grotesk', 'DM Sans', Arial, Helvetica, sans-serif;
 }
 .indent p {
     width: 100%;
@@ -60,6 +60,8 @@ header {
     border-bottom:1px solid rgba(255, 255, 255, 0.329);
     border-radius: 20px;
     background-color: rgba(32, 32, 32, 0);
+    font-family: 'Space Grotesk';
+    font-weight: 400;
 }
 
 .content-center-panel {
@@ -134,8 +136,8 @@ nav.mobile h1 {
 .cvcc-contact {
 
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.041);
-    border:1px solid rgba(255, 255, 255, 0.329);
+    background-color: rgba(8, 75, 8, 0.438);
+    border:1px solid rgba(46, 199, 46, 0.438);
     padding: 2.5%;
     align-items: center;
     width: 80%;
@@ -151,4 +153,11 @@ main {
     background-color: rgb(24, 41, 24);
     color: rgb(255, 255, 255);
     padding-top:180px;
+}
+main p {
+    font-weight: 200;
+}
+p a {
+    color: rgb(46, 199, 46);
+    text-decoration: none;
 }
