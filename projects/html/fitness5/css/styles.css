@@ -106,19 +106,7 @@ footer p a {
 #weights, #cardio, #training {
 	margin: 0 2%;
 }
-/* #exercise {
-	clear: left;
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	background-color: #f2f2f2;
-	padding: 1% 2%;
-}
-#exercise dt {
-	font-weight: bold;
-}
-#exercise dd {
-	padding: 0.5% 1% 2% 0;
-} */
+
 #contact {
 	text-align: center;
 }
@@ -146,3 +134,16 @@ footer p a {
 .hours {
 	margin-left: 10%;
 }
+/* #exercise {
+	clear: left;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	background-color: #f2f2f2;
+	padding: 1% 2%;
+}
+#exercise dt {
+	font-weight: bold;
+}
+#exercise dd {
+	padding: 0.5% 1% 2% 0;
+} */
