@@ -5,13 +5,10 @@
       box-sizing: border-box;
     }
 
-    body { 
-      background-color: hsl(160, 12%, 5%);
-    }
-    p, h6, h5, h4, h3, h2, h1, code, a {
+    body {
         font-family: 'DM Sans', Arial, Helvetica, sans-serif;
-         /* dark background */
-        color: white; /* Temporary fix */
+        background-color: hsl(160, 12%, 5%); /* dark background */
+        color: white;
     }
 
     footer {
@@ -52,7 +49,7 @@
     }
 
     .nav-links a:hover {
-    color: rgb(91, 144, 89);
+      color: hsl(118, 40%, 12%);
     }
 
     /* Hamburger icon */
@@ -87,20 +84,18 @@ a.rounded-translucent:hover {
 .content-center-panel {
     text-align: center;
     align-items: center;
-    width: 82.5%;
+    width: 80%;
     margin-left:auto;
     margin-right:auto;
-    
 }
 .projects {
     align-items: center;
-    width: 82.5%;
+    width: 80%;
     margin-left:auto;
     margin-right:auto;
-    
 }
 ol#projects-list li a {
-    color: rgb(91, 144, 89);
+    color: rgb(28, 155, 28);
     text-decoration: none;
     margin-left:2.5%;
     
@@ -118,27 +113,6 @@ ol#projects-list-double {
 .content-projects-panel h4 {
 
     margin-left: 5%;
-}
-.content-projects-panel {
-  border: 1px solid hsl(0, 0%, 90%);
-  padding: 3.5% 2.5%;
-  border-radius: 20px;
-  background-color: hsla(0, 0%, 0%, 0.251);
-}
-.projects h1.title {
-  text-align: center;
-  padding: 1%;
-  font-size: 3em;
-  margin-bottom: 1%;
-}
-hr {
-  background-color: hsl(0, 0%, 10%);
-  margin: 10px;
-  padding: 0;
-}
-
-section {
-    margin: .5%;
 }
 
     /* Mobile styles */
