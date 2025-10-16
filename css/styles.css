@@ -15,6 +15,7 @@
       font-family: monospace;
       font-weight: 100;
       color: white;
+      text-align: center;
     }
 
     /* Navbar container */
@@ -88,31 +89,148 @@ a.rounded-translucent:hover {
     margin-left:auto;
     margin-right:auto;
 }
+.content-center-panel h1 {
+  font-size: 3em;
+}
+.content-center-panel p {
+  font-size: 1em;
+}
 .projects {
     align-items: center;
     width: 80%;
     margin-left:auto;
     margin-right:auto;
 }
-ol#projects-list li a {
-    color: rgb(28, 155, 28);
-    text-decoration: none;
-    margin-left:2.5%;
-    
+.domainList {
+  width:76%;
+  text-align: center;
+  margin: 0 auto ;
+  border-color:rgba(31, 31, 31, 0.637);
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px 25px 20px 25px;
+  border-radius:10px;
 }
-ol#projects-list {
-    list-style-type: none;
-    text-align: left;
-    
+.domainList h1 {
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.637);
+  font-size:400;
+  font-size:3.5em;
+  font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
 }
-ol#projects-list-double {
-    list-style-type: none;
-    text-align: left;
-    margin-left:5%;
+.domainList h2 {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.637);
+  font-size:300;
+  font-size:2em;
+  font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
 }
-.content-projects-panel h4 {
 
-    margin-left: 5%;
+
+ul#projects-list {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  margin-left: 50px;
+  list-style-type:disc;
+
+}
+
+ul#projects-list li a {
+  color: rgb(255, 255, 255);
+  float:left;
+  padding-bottom: 5px;
+  font-weight: 100;
+  font-family: 'DM Sans', sans-serif;
+  font-size:1.125em;
+  text-decoration: none;
+  transition: color 0.1s;
+}
+ul#projects-list li a:hover {
+  color: rgb(221, 221, 221);
+  float:left;
+  padding-bottom: 5px;
+  font-weight: 100;
+  font-family: 'DM Sans', sans-serif;
+  font-size:1.125em;
+  text-decoration: none;
+
+}
+hr#separator-main {
+  width:97.5%;
+
+  margin-left:auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+hr {
+  width:100%;
+  margin-top:10px;
+  border-color:  rgba(31, 31, 31, 0.212);
+}
+.domainList {
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.048);
+}
+.domain-subList {
+  width: 100%;
+  height: 100%;
+}
+
+ul li h1 a {
+    color:white;
+    user-select: none;
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.75em;
+    padding:0;
+    border: 0;
+    background-color: rgb(0,0,0,0);
+    transition: color 0.2s;
+    animation: fadein normal .4s;
+}
+ul li h1 a:hover {
+    color:rgb(233, 233, 233);
+    /* text-decoration: underline solid rgb(233, 233, 233) 1px; */
+    padding:0;
+    border: 1px;
+    background-color: rgb(0,0,0,0);
+}
+
+/* top nav btn links*/
+ul li a#btn {
+    user-select: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+    font-size: 1.125em;
+    border:1px rgba(255, 255, 255, 0.212) solid;
+    background-color: rgba(31, 31, 31, 0.2);
+      padding-left:35px;
+  padding-right:35px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+ul li a#btn:hover {
+    border-color: white;
+    background-color: rgba(31, 31, 31, 0.637);
+}
+.links {
+    display: inline-flex;
+    margin-right: 0;
+    margin-left: auto;
+}
+ul li.header h1{
+    margin: 0;
+    font-size: 1em;
 }
 
     /* Mobile styles */
@@ -166,9 +284,6 @@ ol#projects-list-double {
         .nav-links li:last-child {
           margin-bottom: 20px; /* or any value you want */
         }
-
-
-
     }
 #grotesk-300 {
   font-family: 'Space Grotesk', sans-serif;

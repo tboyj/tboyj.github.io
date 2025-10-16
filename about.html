@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;700&display=swap" rel="stylesheet">
+  <title>jacksonphilips</title>
+
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><h2 id="grotesk-600">jacksonphilips<span id="blinking-animation">_</span></h2></div>
+    <ul class="nav-links">
+      <li><a href="index.html" id="grotesk-300" class="rounded-translucent">home</a></li>
+      <li><a href="#" id="grotesk-300" class="rounded-translucent">about</a></li>
+      <li><a href="projects/projects.html" id="grotesk-300" class="rounded-translucent">projects</a></li>
+      <li><a href="#contact" id="grotesk-300" class="rounded-translucent">contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+  <main>
+    
+    <section class="about" id="about">
+        <div class="content-center-panel">
+            <h1>About me</h1>
+            <p>I’m a passionate and curious high school student with strong interests in programming, sound design, and digital media. I bring to the table strong computer literacy, creativity, and collaboration skills. Currently pursuing a focused curriculum in Programming & Software Development, I am eager to apply both my technical and communication skills in entry-level roles related to Arts and Communication.
+                This is a temporary about me.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+		<div class="content-center-panel">
+            <h1>Contact</h1>
+		    <p>Find me on GitHub: <a href="https://www.github.com/tboyj">@tboyj</a></p>
+			<div class="cvcc-contact">
+				<h2>CVCC</h2>
+				<h4>8001 Brecksville Rd, Brecksville, OH 44141</h4>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23962.094622220884!2d-81.62412750000001!3d41.3466624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830e6dd7da6a0c5%3A0xe21fba97e75c809!2sCuyahoga%20Valley%20Career%20Center!5e0!3m2!1sen!2sus!4v1757440317867!5m2!1sen!2sus"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe>
+			</div>
+		</div>
+	</section>			
+	
+  </main>
+  <footer>&copy; 2025 Jackson Philips</footer>
+</body>
+</html>
