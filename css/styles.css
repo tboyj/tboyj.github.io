@@ -131,7 +131,7 @@ a.rounded-translucent:hover {
 }
 
 
-ul#projects-list {
+ol#projects-list {
   display: flex;
   flex-direction: column;
   margin-right: 50px;
@@ -140,7 +140,7 @@ ul#projects-list {
 
 }
 
-ul#projects-list li a {
+ol#projects-list li a {
   color: rgb(255, 255, 255);
   float:left;
   padding-bottom: 5px;
@@ -150,7 +150,7 @@ ul#projects-list li a {
   text-decoration: none;
   transition: color 0.1s;
 }
-ul#projects-list li a:hover {
+ol#projects-list li a:hover {
   color: rgb(221, 221, 221);
   float:left;
   padding-bottom: 5px;
@@ -181,7 +181,7 @@ hr {
   height: 100%;
 }
 
-ul li h1 a {
+ol li h1 a {
     color:white;
     user-select: none;
     font-family: 'Space Grotesk', sans-serif;
@@ -194,7 +194,7 @@ ul li h1 a {
     transition: color 0.2s;
     animation: fadein normal .4s;
 }
-ul li h1 a:hover {
+ol li h1 a:hover {
     color:rgb(233, 233, 233);
     /* text-decoration: underline solid rgb(233, 233, 233) 1px; */
     padding:0;
@@ -203,7 +203,7 @@ ul li h1 a:hover {
 }
 
 /* top nav btn links*/
-ul li a#btn {
+ol li a#btn {
     user-select: none;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 100;
@@ -219,7 +219,7 @@ ul li a#btn {
   border-radius: 20px;
   transition: background-color 0.2s, border-color 0.2s;
 }
-ul li a#btn:hover {
+ol li a#btn:hover {
     border-color: white;
     background-color: rgba(31, 31, 31, 0.637);
 }
@@ -228,7 +228,7 @@ ul li a#btn:hover {
     margin-right: 0;
     margin-left: auto;
 }
-ul li.header h1{
+ol li.header h1{
     margin: 0;
     font-size: 1em;
 }
@@ -290,7 +290,7 @@ ul li.header h1{
   font-weight: 300;
 }
 
-/* Regular */
+/* Regolar */
 #grotesk-400 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;
