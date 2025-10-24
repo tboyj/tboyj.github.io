@@ -96,7 +96,7 @@ a.rounded-translucent:hover {
     margin-right:auto;
 }
 .content-center-panel h1 {
-  font-size: 2rem;
+  font-size: 1.75em;
 }
 .content-center-panel p {
   font-size: 1em;
@@ -149,7 +149,7 @@ ul li a#btn:hover {
   color: white;
 }
 .domainList h4 {
-  font-size: 2em;
+  font-size: 1.15em;
   font-weight: 300;
   font-style: italic;
 }
