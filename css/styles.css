@@ -310,6 +310,22 @@ ul li h1 a:hover {
   color: rgb(233, 233, 233);
 }
 
+a {
+  color: white;
+  user-select: none;
+  font-family: 'Space Grotesk', sans-serif;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0;
+  background-color: transparent;
+  transition: color 0.2s;
+  animation: fadein 0.4s normal;
+}
+
+a:hover {
+  color: rgb(233, 233, 233);
+}
+
 ul li.header h1 {
   font-size: 1em;
 }
