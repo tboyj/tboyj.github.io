@@ -60,6 +60,11 @@
       flex-direction: column;
       cursor: pointer;
     }
+    .hamburger i {
+      color: white;
+      font-size: 20px;
+      margin-right: 0;
+    }
 
     .hamburger span {
       height: 3px;
@@ -122,54 +127,165 @@ ul li a#btn:hover {
 }
 
 .domainList {
-  width: 76%;
-  text-align: center;
-  margin: 0 auto;
+  width: 80%;
+  margin: auto;
+  text-align: left;             /* Align titles + lists to the left */
   border: 1px solid rgba(31, 31, 31, 0.637);
-  padding: 10px 25px 20px 25px;
+  padding: 0px 45px 25px 45px; /* extra left padding for breathing room */
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.048);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
-.domainList h1 {
-  text-align: left;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(31, 31, 31, 0.637);
-  font-size: 2.25em;
-  font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+.domainList h1, 
+.domainList h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+.domainList h4 {
+  font-size: 2em;
+  font-weight: 300;
+  font-style: italic;
+}
+h1#projshdr {
+  margin: 20px;
+  width: 100%;
+  text-align: center;
+}
+.content-center-panel p {
+  font-size:1.5em;
 }
 
-ul#projects-list {
+/* Figure card matching the grid style */
+.project-figure {
   display: flex;
   flex-direction: column;
-  margin: 0 50px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  box-shadow: 0 2px 8px rgba(255,255,255,0.02);
+  min-height: 160px;
+}
+
+/* image area — can be a screenshot or icon */
+.project-figure img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+/* caption area */
+.project-figure figcaption {
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+/* title & description */
+.project-figure h4 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: white;
+}
+
+.project-figure .project-desc {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.2;
+}
+
+/* action link */
+.project-figure .project-link {
+  margin-top: auto;                       /* pushes link to bottom of caption */
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
+  transition: background-color 0.16s, border-color 0.16s, transform 0.16s;
+}
+section.about, section.projects-aboutpg, section.contact {
+  margin: 25px 0px;
+}
+/* hover effects */
+.project-figure:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.06);
+}
+
+.project-figure:hover .project-link {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.16);
+  transform: translateX(3px);
+}
+code {
+  background-color: #00000087;
+  padding:0px 20px;
+  margin: 0px 5px 0 0;
+  border-radius: 40px;
+
+}
+img#exmp {
+  filter: grayscale(100%) blur(2px);
+  
+}
+/* small screens: reduce image height */
+@media (max-width: 560px) {
+  .project-figure img { height: 90px; }
+  .project-figure { min-height: 120px; }
+}
+
+/* Indented project lists */
+ul#projects-list {
+  margin-left: 2.5rem;           /* visual indent */
   list-style-type: disc;
 }
 
+ul#projects-list li {
+  margin: 0.4rem 0;
+}
+
 ul#projects-list li a {
-  color: rgb(255, 255, 255);
-  padding-bottom: 5px;
-  font-weight: 100;
+  color: white;
+  font-weight: 300;
+  font-size: 1.05em;
   font-family: 'DM Sans', sans-serif;
-  font-size: 1.125em;
   text-decoration: none;
-  transition: color 0.1s;
+  transition: color 0.2s, transform 0.2s;
 }
 
 ul#projects-list li a:hover {
   color: rgb(221, 221, 221);
+  transform: translateX(4px);
 }
 
-hr#separator-main {
-  width: 97.5%;
-  margin: 0 auto 20px auto;
-  text-align: center;
-}
-
-hr {
+/* Make the separator line flush left instead of centered */
+hr#separator {
   width: 100%;
-  margin-top: 10px;
-  border-color: rgba(31, 31, 31, 0.212);
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .domain-subList {
@@ -195,7 +311,6 @@ ul li h1 a:hover {
 }
 
 ul li.header h1 {
-  margin: 0;
   font-size: 1em;
 }
 
@@ -226,10 +341,11 @@ ul li a#btn:hover {
     margin-left: auto;
 }
 .banner {
-  width: 99.4325vw;
+  width: 100%;
   height: 92vh;
   overflow: hidden;
   position: relative;
+  user-select: none;
 }
 
 .banner img {
@@ -408,6 +524,9 @@ ul li a#btn:hover {
         opacity: 0;
     }
     
+}
+footer {
+  margin-top: 20px;
 }
 
 
