@@ -82,7 +82,7 @@ a.rounded-translucent {
 }
 a.rounded-translucent:hover {
     border: 1px solid hsl(0, 0%, 90%);
-    color:hsl(0, 0%, 90%);
+    color: rgb(202, 202, 202);
     background-color: rgba(58, 58, 58, 0.856);
 
 }
@@ -96,7 +96,7 @@ a.rounded-translucent:hover {
     margin-right:auto;
 }
 .content-center-panel h1 {
-  font-size: 3em;
+  font-size: 2.5rem;
 }
 .content-center-panel p {
   font-size: 1em;
@@ -124,10 +124,13 @@ ul li a#btn {
 ul li a#btn:hover {
   border-color: white;
   background-color: rgba(31, 31, 31, 0.637);
+
+
+  color: rgb(202, 202, 202);
 }
 
 .domainList {
-  width: 80%;
+  width: 100%;
   margin: auto;
   text-align: left;             /* Align titles + lists to the left */
   border: 1px solid rgba(31, 31, 31, 0.637);
@@ -152,7 +155,6 @@ ul li a#btn:hover {
 }
 h1#projshdr {
   margin: 20px;
-  width: 100%;
   text-align: center;
 }
 .content-center-panel p {
@@ -226,6 +228,9 @@ h1#projshdr {
 }
 section.about, section.projects-aboutpg, section.contact {
   margin: 25px 0px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* hover effects */
 .project-figure:hover {
@@ -238,6 +243,7 @@ section.about, section.projects-aboutpg, section.contact {
   background: rgba(255,255,255,0.04);
   border-color: rgba(255,255,255,0.16);
   transform: translateX(3px);
+  color: rgb(202, 202, 202);
 }
 code {
   background-color: #00000087;
@@ -282,7 +288,7 @@ ul#projects-list li a {
 }
 
 ul#projects-list li a:hover {
-  color: rgb(221, 221, 221);
+  color: rgb(202, 202, 202);
   transform: translateX(4px);
 }
 
@@ -313,7 +319,7 @@ ul li h1 a {
 }
 
 ul li h1 a:hover {
-  color: rgb(233, 233, 233);
+  color: rgb(202, 202, 202);
 }
 
 a {
@@ -329,7 +335,7 @@ a {
 }
 
 a:hover {
-  color: rgb(233, 233, 233);
+  color: rgb(202, 202, 202);
 }
 
 ul li.header h1 {
