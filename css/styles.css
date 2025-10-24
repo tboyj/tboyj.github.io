@@ -245,6 +245,12 @@ code {
   margin: 0px 5px 0 0;
   border-radius: 40px;
 
+    display: inline-block;      /* preserves padding & wrapping */
+  white-space: normal;        /* allows line breaks */
+  overflow-wrap: anywhere;    /* breaks long tokens cleanly */
+  word-break: break-word;     /* older browser fallback */
+  line-height: 1.4;
+  font-size: 0.95em;
 }
 img#exmp {
   filter: grayscale(100%) blur(2px);
