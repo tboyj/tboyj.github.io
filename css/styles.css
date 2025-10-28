@@ -138,6 +138,7 @@ ul li a#btn:hover {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
   background-color: rgba(255, 255, 255, 0.02);
+  margin-bottom: 20px;
 }
 
 .domainList h1, 
