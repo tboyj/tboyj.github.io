@@ -128,13 +128,100 @@ ul li a#btn:hover {
 
   color: rgb(202, 202, 202);
 }
+	.grid {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-gap: 20px;
+	}
+  /* Form Grid Styling */
+.form-grid {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 25px 35px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  font-family: 'DM Sans', sans-serif;
+  color: white;
+}
+
+/* Fieldset + Legend */
+.form-grid fieldset {
+  border: none;
+  padding: 0;
+}
+
+.form-grid legend {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25em;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 1rem;
+  padding-bottom: 5px;
+}
+
+/* Label & Inputs */
+.form-grid label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-size: 0.95em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-grid input, .form-grid textarea
+ {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background-color: rgba(36, 36, 36, 0.45);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1em;
+  outline: none;
+  resize: none;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(58, 58, 58, 0.55);
+}
+
+/* Submit Button */
+.form-grid .btn {
+  display: block;              /* make it a block element */
+  margin: 20px auto 0 auto;    /* top auto-bottom auto for centering */
+  text-align: center;
+  background-color: rgba(31, 31, 31, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.212);
+  border-radius: 20px;
+  padding: 10px 35px;
+  font-size: 1em;
+  width: 150px;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+
+.form-grid .btn:hover {
+  border-color: white;
+  background-color: rgba(31, 31, 31, 0.637);
+  color: rgb(202, 202, 202);
+}
+
+/* Responsive */
 
 .domainList {
   width: 100%;
   margin: auto;
   text-align: left;             /* Align titles + lists to the left */
   border: 1px solid rgba(31, 31, 31, 0.637);
-  padding: 0px 45px 25px 45px; /* extra left padding for breathing room */
+  padding: 0px 25px 25px 25px; /* extra left padding for breathing room */
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
   background-color: rgba(255, 255, 255, 0.02);
@@ -249,7 +336,7 @@ section.about, section.projects-aboutpg, section.contact {
 code {
   background-color: #00000087;
   padding:0px 20px;
-  margin: 0px 5px 0 0;
+  margin: 0px 5px 5px 0;
   border-radius: 40px;
 
     display: inline-block;      /* preserves padding & wrapping */
@@ -448,6 +535,10 @@ ul li a#btn:hover {
 }
     /* Mobile styles */
 @media (max-width: 768px) {
+  .domainList form {
+    padding: 20px;
+  }
+
   .nav-links {
     position: absolute;
     top: 55px;
