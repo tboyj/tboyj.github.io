@@ -228,7 +228,6 @@ ul li a#btn:hover {
 .domainList h4 {
   font-size: 1.15em;
   font-weight: 300;
-  font-style: italic;
 }
 h1#projshdr {
   margin: 20px;
@@ -550,7 +549,10 @@ ul li a#btn:hover {
   .domainList form {
     padding: 20px;
   }
-
+  .mobile-hide {
+    visibility: hidden;
+    display: none;
+  }
   .nav-links {
     position: absolute;
     top: 55px;
