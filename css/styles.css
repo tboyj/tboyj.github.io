@@ -589,7 +589,7 @@ ul li a#btn:hover {
       }
 
       .hamburger {
-        display: flex;
+        display: block;
       }
 
 
