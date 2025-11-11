@@ -42,7 +42,69 @@
             <h1>About me</h1>
             <p>I'm Jackson, an avid and creative programmer with multiple skills under my belt. I've earned multiple BPA awards and currently aim to achieve even greater things. I am very familiar with programming languages such as Java and C# and understand the fundamentals of object-oriented programming very well.
             </p>
-        </div>
+            <hr id="separator">
+            <h1>Favorites</h1>
+            
+            <!-- Button to toggle song -->
+            
+            <ul class="starred-list">
+            <h2 id="grotesk-300">Songs</h2>
+            <hr id="invis-seperator">
+            <li>
+            <div class="music-holder">
+            <button id="toggle-rhinoceros" class="music-btn" 
+                    onclick="toggleVisibility('rhinoceros-container', this)">
+              >
+            </button>
+            <span>The Smashing Pumpkins - Rhinoceros</span> <!-- Title caption -->
+            <div class="inner-div" id="rhinoceros-container">
+              <div class="song">
+                <div class="inner-song" id="rhinoceros">
+                  <div class="artist">
+                    <h2>Rhinoceros</h2>
+                    <h5>The Smashing Pumpkins</h5>
+                  </div>
+                  <img class="cover-art mobile-hide" src="media/gish.webp" alt="Gish" height="300px">
+                </div>
+                <audio src="media/e.mp3" controls style="width: 100%;"></audio>
+              </div>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="music-holder">
+            <button id="toggle-btcsv" class="music-btn" 
+                    onclick="toggleVisibility('btcsv-container', this)">
+              >
+            </button>
+            <span>Steve Vai - Building the Church</span> <!-- Title caption -->
+            <div class="inner-div" id="btcsv-container">
+              <div class="song">
+                <div class="inner-song" id="btcsv">
+                  <div class="artist">
+                    <h2>Building the Church</h2>
+                    <h5>Steve Vai</h5>
+                  </div>
+                  <img class="cover-art mobile-hide" src="media/realillusions-reflections.webp" alt="Real Illusions: Reflections" height="300px">
+                </div>
+                <audio src="media/e.mp3" controls style="width: 100%;"></audio>
+              </div>
+            </div>
+            </div>
+            </li>
+            </ul>
+            <script>
+              function toggleVisibility(containerId, btn) {
+                const container = document.getElementById(containerId);
+
+                // Toggle the .open class
+                container.classList.toggle("open");
+
+                // Change arrow
+                btn.textContent = container.classList.contains("open") ? "<" : ">";
+              }
+            </script>
+
       </section>
       <section class="projects-aboutpg" id="">
         <div class="domainList">
