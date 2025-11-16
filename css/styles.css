@@ -362,6 +362,110 @@ img#exmp {
   filter: grayscale(100%) blur(2px);
   
 }
+
+.video-btn {
+  border-radius: 20px;
+  height: 25px;
+  width: 25px;
+  border-top-right-radius: 0;
+  background-color: rgba(41, 41, 41, 0.484);
+  border: none;
+  color: white;
+  transition: background-color 0.2s, color 0.2s;
+}
+.video-btn:hover {
+  background-color: rgba(41, 41, 41, 0.82);
+  border: gray;
+  color: rgb(202, 202, 202);
+}
+
+.video-holder {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-container {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  border: 1px white solid;
+  grid-template-columns: 100%;
+  border-radius: 12px;
+}
+
+.video-container video {
+  background-color: rgb(241, 243, 244);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+
+
+.inner-video {
+  display: grid;
+  height: auto;
+   /* text takes remaining space, image defines its own width */
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  position: relative;
+
+}
+
+.inner-video#sample1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../media/sample-video1.webp");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: multiply;
+  filter: blur(10px);
+  transform: scale(1.2);
+  z-index: -1;
+  border-radius: 35px;
+}
+
+.inner-video#sample2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../media/sample-video2.webp");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: multiply;
+  filter: blur(10px);
+  transform: scale(1.2);
+  z-index: -1;
+  border-radius: 35px;
+}
+
+.inner-video .creator {
+  grid-template-columns: 100%;
+  margin-left: 1.5%;
+  text-align: left;
+  padding: 20px;
+}
+
+.inner-video .creator h2 {
+  font-size: clamp(1.2rem, 2.5vw + 0.5rem, 3rem);
+  margin: 0;
+}
+
+.inner-video .creator h5 {
+  font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.5rem);
+  font-weight: 300;
+  margin: 0;
+}
+
+
 .music-btn
 {
   border-radius: 20px;
