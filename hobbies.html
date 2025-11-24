@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="media/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="media/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="media/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="media/favicons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;700&display=swap" rel="stylesheet">
+  <title>jacksonphilips</title>
+  <script src="https://kit.fontawesome.com/7bca7e1689.js" crossorigin="anonymous"></script>
+  </head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><h2 id="grotesk-600">jacksonphilips<span id="blinking-animation">_</span></h2></div>
+    <ul class="nav-links">
+      <li><a href="index.html" id="grotesk-300" class="rounded-translucent">home</a></li>
+      <li><a href="about.html" id="grotesk-300" class="rounded-translucent">about</a></li>
+      <li><a href="projects/projects.html" id="grotesk-300" class="rounded-translucent">assignments</a></li>
+      <li><a href="about.html#contact" id="grotesk-300" class="rounded-translucent">contact</a></li>
+      <li><a href="hobbies.html" id="grotesk-300" class="rounded-translucent">hobbies</a></li>
+    </ul>
+    <div class="hamburger">
+          <span >
+      <i class="fa-solid fa-bars"></i>
+      </span>
+    </div>
+  </nav>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+  <main>
+    
+
+	
+  </main>
+  <footer>&copy; 2025 Jackson Philips</footer>
+</body>
+
+</html>

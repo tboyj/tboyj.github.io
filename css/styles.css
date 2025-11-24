@@ -302,7 +302,7 @@ h1#projshdr {
   font-weight: 300;
   transition: background-color 0.16s, border-color 0.16s, transform 0.16s;
 }
-section.about, section.projects-aboutpg, section.schedule, section.contact {
+section.about, section.projects-aboutpg, section.schedule, section.contact, section.guitar-tutorial {
   margin: 25px 0px;
   width: 80%;
   margin-left: auto;
