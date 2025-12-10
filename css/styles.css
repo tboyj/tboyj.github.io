@@ -824,6 +824,7 @@ ul li a#btn:hover {
       .hamburger i {
         color: white !important;
         font-size: 2em;
+        width: 32px;
       }
 
 
