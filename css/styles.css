@@ -310,7 +310,7 @@ section.about, section.projects-aboutpg, section.schedule, section.contact, sect
 }
 /* hover effects */
 .project-figure:hover {
-  transform: translateY(-6px);
+  transform: scale(.99);
   border-color: rgba(255,255,255,0.14);
   box-shadow: 0 10px 30px rgba(255,255,255,0.06);
 }
@@ -318,8 +318,11 @@ section.about, section.projects-aboutpg, section.schedule, section.contact, sect
 .project-figure:hover .project-link {
   background: rgba(255,255,255,0.04);
   border-color: rgba(255,255,255,0.16);
-  transform: translateX(3px);
+  
   color: rgb(202, 202, 202);
+}
+.project-figure:hover i {
+  color: rgb(190, 190, 190);
 }
 code {
   background-color: #00000087;
