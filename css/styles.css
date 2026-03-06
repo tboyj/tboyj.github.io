@@ -30,7 +30,7 @@
 
     /* Navbar container */
     .navbar {
-      position: sticky;
+      position: fixed;
       top:1.25%;
       margin-left: auto;
       margin-right: auto;
@@ -40,7 +40,7 @@
       z-index: 1000; /* ensures it stays on top */
       display: flex;
       justify-content: space-between;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(31, 31, 31, 0.8);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       align-items: center;
@@ -823,11 +823,7 @@ ul li a#btn:hover {
     visibility: hidden;
     display: none;
   }
-  .glass {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
+
 
   .nav-links {
     position: absolute;
@@ -835,7 +831,7 @@ ul li a#btn:hover {
     right: 0;
     border-radius: 1em;
     border-top-right-radius: 8px;
-
+    background: rgb(31, 31, 31);
     flex-direction: column;
     width: 200px;
     border-radius: 2em;
@@ -979,7 +975,7 @@ ul.starred-list li {
   z-index: 10000;
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 20%;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
