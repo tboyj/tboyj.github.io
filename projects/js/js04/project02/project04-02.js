@@ -35,7 +35,7 @@ window.addEventListener("load", quoteGenerator);
 function quoteGenerator() {
    
    // Number of quotes in the array
-   quoteCount = quotes.length;
+   let quoteCount = quotes.length;
    
    // Generate a random integer to select a quote
    let randomQuote = randomInt(0, quoteCount-1);
