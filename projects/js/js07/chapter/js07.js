@@ -65,27 +65,43 @@ document.getElementById("getFile").onchange = function(){
                         unique[uniqueIndex] = [words[i], 1];
                   }
             }
-            unique = unique.slice(0,100);
-            unique.sort();
+
+
+
+            
+            unique.sort(byDuplicate);
+            function byDuplicate(a,b) {
+                  return b[1]-a[1];
+            }
+
+             unique = unique.slice(0,100);
+             
+             
 
             let maxCount = unique[0][1];
             let cloudBox = document.getElementById("wc_cloud");
             cloudBox.innerHTML = "";
 
+            
+
             for (let i = 0; i < unique.length; i++) {
                   let word = document.createElement("span");
                   word.textContent = unique[i][0];
-                  word.style.fontSize = unique[i][1]/maxCount*.5 +"em";
+                  word.style.fontSize = unique[i][1]/maxCount +"em";
                   cloudBox.appendChild(word);
             }
 
+            let sortedWords = Array.from(cloudBox.children);
+
+            // Sort alphabetically
+            sortedWords.sort((a, b) => a.textContent.localeCompare(b.textContent));
+
+            // Re-append in sorted order
+            sortedWords.forEach(span => cloudBox.appendChild(span));
+
+
             console.log (unique);
 
-
-            unique.sort(byDuplicate);
-            function byDuplicate(a,b) {
-                  return b[1]-a[1];
-            }
 
             console.log(words);
 
