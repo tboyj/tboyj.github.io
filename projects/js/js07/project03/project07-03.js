@@ -6,7 +6,7 @@
 // 03/25/2026
 
 // Target time (change this to whatever you want)
-let targetTime = new Date("January 1, 2027 00:00:00");
+let targetTime = new Date("May 28, 2026 00:00:00");
 
 // Page elements
 let currentTime = document.getElementById("currentTime");
