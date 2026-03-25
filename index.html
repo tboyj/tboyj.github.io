@@ -17,10 +17,18 @@
 
 </head>
 <body>
+    <header>
+      <div class="countdown">
+            <span id="days">00</span><span id="label">d</span>
+            <span id="hours">00</span><span id="label">h</span>
+            <span id="minutes">00</span><span id="label">m</span>
+            <span id="seconds">00</span><span id="label">s</span>
+      </div>
+    </header>
     <nav class="navbar ">
     <div class="logo"><a id="grotesk-600" href="index.html"><img src="media/favicons/favicon.svg"></img>jacksonphilips<span id="blinking-animation">_</span></a></div>
     <ul class="nav-links">
-      <li><a href="about.html" id="grotesk-300" class="rounded-translucent">about</a></li>
+      <li><a href="#about" id="grotesk-300" class="rounded-translucent">about</a></li>
       <li><a href="projects/projects.html" id="grotesk-300" class="rounded-translucent">assignments</a></li>
       <li><a href="#contact" id="grotesk-300" class="rounded-translucent">contact</a></li>
       <!-- <li><a href="hobbies.html" id="grotesk-300" class="rounded-translucent">hobbies</a></li> -->
@@ -46,11 +54,210 @@
       <h1 class="banner-title typing">Jackson Philips</h1>
     </section>
       <div class="content-center-panel">
-				<h1></h1>
+      <p>⚠️ This site is under construction. ⚠️</p>
 
-				</div>
-			</section>
-			
+			<section class="about" id="about">
+        <div class="domainList">
+            <h1>About me</h1>
+            <p>I'm Jackson, an avid and creative programmer with multiple skills under my belt. I've earned multiple BPA awards and currently aim to achieve even greater things. I am very familiar with programming languages such as Java and C# and understand the fundamentals of object-oriented programming very well.
+            </p>
+            <hr id="separator">
+            <h1>Favorites</h1>
+            
+            <!-- Button to toggle song -->
+            
+            <ul class="starred-list">
+            <h2 id="grotesk-300">Songs</h2>
+            <hr id="invis-seperator">
+            <li>
+            <div class="music-holder">
+            <button id="toggle-rhinoceros" class="music-btn" 
+                    onclick="toggleVisibility('rhinoceros-container', this)">
+              >
+            </button>
+            <span>The Smashing Pumpkins - Rhinoceros</span> <!-- Title caption -->
+            <div class="inner-div" id="rhinoceros-container">
+              <div class="song">
+                <div class="inner-song" id="rhinoceros">
+                  <div class="artist">
+                    <h2>Rhinoceros</h2>
+                    <h5>The Smashing Pumpkins</h5>
+                  </div>
+                  <img class="cover-art mobile-hide" src="media/gish.webp" alt="Gish" height="300px">
+                </div>
+                <audio src="media/rhinoceros.mp3" controls style="width: 100%;"></audio>
+              </div>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="music-holder">
+            <button id="toggle-btcsv" class="music-btn" 
+                    onclick="toggleVisibility('btcsv-container', this)">
+              >
+            </button>
+            <span>Steve Vai - Building the Church</span> <!-- Title caption -->
+            <div class="inner-div" id="btcsv-container">
+              <div class="song">
+                <div class="inner-song" id="btcsv">
+                  <div class="artist">
+                    <h2>Building the Church</h2>
+                    <h5>Steve Vai</h5>
+                  </div>
+                  <img class="cover-art mobile-hide" src="media/realillusions-reflections.webp" alt="Real Illusions: Reflections" height="300px">
+                </div>
+                <audio src="media/btc.mp3" controls style="width: 100%;"></audio>
+              </div>
+            </div>
+            </div>
+            </li>
+            <h2 id="grotesk-300">Videos</h2>
+            <hr id="invis-seperator">
+            <li>
+            <div class="video-holder">
+            <button id="toggle-sample" class="video-btn" 
+                    onclick="toggleVisibility('sample-container', this)">
+              >
+            </button>
+            <span>Jumping tests - ChronoQuest</span> <!-- Title caption -->
+            <div class="inner-div" id="sample-container">
+              <div class="video">
+                <div class="inner-video" id="sample">
+                
+                <video src="media/cqtest.mp4" controls="display: auto;"></video>
+                </div>
+              </div>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="video-holder">
+            <button id="toggle-sample2" class="video-btn" 
+                    onclick="toggleVisibility('sample2-container', this)">
+              >
+            </button>
+            <span>Tooling with Spring Boot</span> <!-- Title caption -->
+            <div class="inner-div" id="sample2-container">
+              <div class="video">
+                <div class="inner-video" id="sample2">
+                <video src="media/spbo.mov" controls="display: auto;"></video >
+                  </div>
+              </div>
+            </div>
+            </div>
+            </li>
+            </ul>
+            <script>
+              function toggleVisibility(containerId, btn) {
+                const container = document.getElementById(containerId);
+
+                // Toggle the .open class
+                container.classList.toggle("open");
+
+                // Change arrow
+                btn.textContent = container.classList.contains("open") ? "<" : ">";
+              }
+            </script>
+        <hr id="separator">
+      </section>
+      <section class="projects-aboutpg" id="">
+        <div class="domainList">
+          <aside>
+            <h1>Projects</h1>
+            <figure class="project-figure">
+            <img src="media/cqimage.png" alt="ChronoQuest" width="600" height="600" id="exmp"/>
+            <figcaption>
+              <h4>ChronoQuest: Fractures in Time</h4>
+              <p class="project-desc">ChronoQuest was a game developed for and competing in the 2025 BPA V03 Software Engineering category. In this game you are Jim Afee, a traveler who must crawl his way out and fix timelines before it's too late. Will you be able to save him?<br><code>C#</code><code>Unity</code><code>Lead Programming</code><code>Art</code></p>
+              <a class="project-link" href="https://github.com/tboyj/chronoquest" aria-label="Open ChronoQuest">
+                Open <span style="color:white;"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              </a>
+            </figcaption>
+          </figure>
+          <br>
+            <figure class="project-figure">
+            <img src="media/gradienttemp.png" alt="ChronoQuest" width="600" height="600"/>
+            <figcaption>
+              <h4>SkillSwap</h4>
+              <p class="project-desc">SkillSwap is a web app that aims to reach similar functions from Quizlet, Blooket and provides a nice space for teachers and students alike to share their courses and knowledge.<br><code>UI Design</code><code>Planning</code></p>
+              <a class="project-link"  href="https://github.com/XOTlC/skillswap"aria-label="Open SkillSwap">
+                  Open <span style="color:white;"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              </a>
+            </figcaption>
+          </figure>
+        </aside>
+      </div>
+    </section>
+    <section class="schedule" id="schedule">
+      <div class="domainList mobile-hide">
+        <h1>Schedule</h1>
+        <table class="availability-table ">
+          
+            <th>Time</th>
+            <th>Mon-Thu</th>
+            <th>Fri</th>
+            <th>Sat-Sun</th>
+            <tr>
+              <td>8:05am-9:35am</td>
+              <td id="busy">Busy</td>
+              <td id="busy">Busy</td>
+              <td id="available">Available</td>
+            </tr>
+            <tr>
+              <td>9:35am-10:45am</td>
+              <td id="available">Available</td>
+              <td id="available">Available</td>
+              <td id="available">Available</td>
+            </tr>
+            <tr>
+              <td>10:45am-2:30pm</td>
+              <td id="busy">Busy</td>
+              <td id="busy">Busy</td>
+              <td id="available">Available</td>
+            </tr>
+            <tr>
+              <td>2:30pm-6:00pm</td>
+              <td id="busy">Busy</td>
+              <td id="available">Available</td>
+              <td id="available">Available</td>
+            </tr>
+            <tr>
+              <td>6:00pm-10:00pm</td>
+              <td id="available">Available</td>
+              <td id="available">Available</td>
+              <td id="available">Available</td>
+            </tr>
+            
+        </table>
+        <code>Last updated on October 31, 2025</code>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+		<div class="domainList">
+        <h1>Contact</h1>
+		    <p><a href="https://www.github.com/tboyj"><span><i class="fa-brands fa-github"></i></span> @tboyj</a></p>
+        <p><a href="https://bsky.app/profile/tboyj.github.io"><span><i class="fa-brands fa-bluesky"></i></span> @tboyj.github.io</a></p>
+        <p><a href="https://www.linkedin.com/in/jackson-philips/"><span><i class="fa-brands fa-linkedin"></i></span> LinkedIn</a></p>
+        <p><a href="mailto:jphilips.dev@gmail.com"><span><i class="fa-solid fa-envelope"></i></span> Email</a></p>
+        
+        <!-- <h1>Reach out</h1>
+        <form class="form-grid">
+					<fieldset>
+						<legend>Information</legend>
+						<label for="fName">First Name</label>
+						<input type="text" id="fName" name="fName" required>
+						<label for="lName">Last Name</label>
+						<input type="text" id="lName" name="lName" required>
+
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" required>
+							<label for="comments">Comment</label>
+							<textarea id="comments" name="comments" rows="5"cols="auto"></textarea>
+					<input type="submit" id="submit" value="Submit" class="btn">
+          </fieldset>
+				</form> -->
+      </div>
+	</section>	
   </main>
   <footer>&copy; 2026 Jackson Philips</footer>
 </body>

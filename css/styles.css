@@ -39,7 +39,7 @@
     /* Navbar container */
    .navbar {
       position: sticky;
-      top:1.25%;
+      top:1.0%;
       margin-left: auto;
       margin-right: auto;
       width: 97.5%;
@@ -51,6 +51,16 @@
       background: var(--base-bl-compl);
       align-items: center;
       color: var(--text-color);
+    }
+
+    .countdown {
+      position:sticky;
+      display: flex;
+      gap: 2px; 
+      padding: 10px;          /* space between numbers */
+      justify-content: center; /* center horizontally */
+      align-items: center;     /* align vertically */
+      font-size: 1rem;
     }
 
     .navbar .logo {
