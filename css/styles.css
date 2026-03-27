@@ -765,12 +765,7 @@ ul li a#btn:hover {
   user-select: none;
 }
 
-.banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+
 .banner::after {
   content: "";
   position: absolute;
@@ -969,4 +964,15 @@ ul.starred-list li {
   padding: 0; 
   padding-bottom: 10px;   
       /* remove default padding */
+}
+
+
+#dither-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* lets you click through it */
 }
