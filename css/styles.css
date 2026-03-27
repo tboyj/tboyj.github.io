@@ -38,12 +38,12 @@
 
     /* Navbar container */
    .navbar {
-      position: sticky;
-      top:1.0%;
+      position:fixed;
       margin-left: auto;
       margin-right: auto;
-      width: 97.5%;
-      padding:  0.75em 2em;
+      top:30px;
+      width: 100%;
+      padding:  0.75em 1em;
       border-radius: .5em;
       z-index: 2; /* ensures it stays on top */
       display: flex;
@@ -51,16 +51,22 @@
       background: var(--base-bl-compl);
       align-items: center;
       color: var(--text-color);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
 
+
     .countdown {
-      position:sticky;
+      position:fixed;
       display: flex;
+      width: 100%;
       gap: 2px; 
-      padding: 10px;          /* space between numbers */
+      padding: 5px;          /* space between numbers */
       justify-content: center; /* center horizontally */
       align-items: center;     /* align vertically */
       font-size: 1rem;
+      background-color: var(--accent-1);
+      z-index: 3;
     }
 
     .navbar .logo {
@@ -747,9 +753,13 @@ ul li a#btn:hover {
     margin-right: 0;
     margin-left: auto;
 }
+.shiftdown {
+  height: 80px;
+}
+
 .banner {
   width: 100%;
-  height: 92vh;
+  height: 100vh;
   overflow: hidden;
   position: relative;
   user-select: none;

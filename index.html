@@ -18,14 +18,14 @@
 </head>
 <body>
     <header>
-      <div class="countdown">
-            <span id="days">00</span><span id="label">d</span>
+      <div class="countdown " id="currentTime">
+            <span>Graduation: </span><span id="days">00</span><span id="label">d</span>
             <span id="hours">00</span><span id="label">h</span>
             <span id="minutes">00</span><span id="label">m</span>
             <span id="seconds">00</span><span id="label">s</span>
       </div>
-    </header>
-    <nav class="navbar ">
+      <script src="scripts/countdown.js" defer></script>
+      <nav class="navbar ">
     <div class="logo"><a id="grotesk-600" href="index.html"><img src="media/favicons/favicon.svg"></img>jacksonphilips<span id="blinking-animation">_</span></a></div>
     <ul class="nav-links">
       <li><a href="#about" id="grotesk-300" class="rounded-translucent">about</a></li>
@@ -39,6 +39,8 @@
       </span>
     </div>
   </nav>
+    </header>
+    
 
   <script>
     const hamburger = document.querySelector(".hamburger");
@@ -47,7 +49,11 @@
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
+
+    
   </script>
+
+
   <main>
     <section class="banner" id="home">
       <img src="media/bg.jpg">
