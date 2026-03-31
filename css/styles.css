@@ -73,6 +73,10 @@
       font-size: 1.5em;
       font-weight: bold;
     }
+    .navbar.logo:hover {
+      cursor: pointer;
+      color: var(--base-bl-text-focus);
+    }
 
     /* Nav links */
     .nav-links {
@@ -101,6 +105,7 @@
       cursor: pointer;
       
     }
+
 
 a.rounded-translucent {
     color: var(--text-color);
@@ -658,7 +663,6 @@ ul#projects-list li {
 }
 
 ul#projects-list li a {
-  color: white;
   font-weight: 300;
   font-size: 1.05em;
   font-family: 'DM Sans', sans-serif;
@@ -691,7 +695,6 @@ hr#invis-seperator {
 }
 
 ul li h1 a {
-  color: white;
   user-select: none;
   font-family: 'Space Grotesk', sans-serif;
   text-decoration: none;
@@ -704,11 +707,9 @@ ul li h1 a {
 }
 
 ul li h1 a:hover {
-  color: rgb(202, 202, 202);
 }
 
 a {
-  color: white;
   user-select: none;
   font-family: 'Space Grotesk', sans-serif;
   text-decoration: none;
@@ -717,10 +718,6 @@ a {
   background-color: transparent;
   transition: color 0.2s;
   animation: fadein 0.4s normal;
-}
-
-a:hover {
-  color: rgb(202, 202, 202);
 }
 
 ul li.header h1 {
@@ -732,7 +729,6 @@ ul li a#btn {
     user-select: none;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 100;
-    color: rgb(255, 255, 255);
     font-size: 1.125em;
     border:1px rgba(255, 255, 255, 0.212) solid;
     background-color: rgba(31, 31, 31, 0.2);
@@ -788,7 +784,6 @@ ul li a#btn:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
   font-size: 4rem;
   font-weight: bold;
   text-align: center;
@@ -846,11 +841,14 @@ ul li a#btn:hover {
   }
   .nav-links {
     position: absolute;
-    top: 65px;
+    top: 50px;
     right: 0;
-    background-color: hsl(0, 0%, 0%);
+    background-color: var(--base-bl-compl);
     flex-direction: column;
     width: 200px;
+    border-radius: .5em;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
     /* Show/Hide Logic */
     max-height: 0;
@@ -875,9 +873,11 @@ ul li a#btn:hover {
 
       }
       .hamburger i {
-        color: white !important;
         font-size: 2em;
         width: 32px;
+      }
+      .hamburger i:hover {
+        color: var(--base-bl-text-focus);
       }
 
 
@@ -885,9 +885,9 @@ ul li a#btn:hover {
             display: flex;                /* Flexbox for centering */
             justify-content: center;      /* Horizontal centering */
             align-items: center;          /* Vertical centering */
-            border: 1px solid hsl(0, 0%, 100%);
-            color: hsl(0, 0%, 100%);
-            background-color: rgba(36, 36, 36, 0.295);
+            border: 1px dashed rgba(0, 0, 0, 0);
+            color: var(--base-bl-text-focus);
+            background-color: var(--accent-5);
             border-radius: .5em;
             margin-left: 20px;
             margin-right: 20px;
@@ -896,9 +896,9 @@ ul li a#btn:hover {
         }
 
         a.rounded-translucent:hover {
-            border: 1px solid hsl(0, 0%, 90%);
-            color:hsl(0, 0%, 90%);
-            background-color: rgba(58, 58, 58, 0.498);
+            border: 1px dashed var(--accent-1);
+            color:var(--base-bl-text-focus);
+            background-color: var(--accent-3);
 
         }
         .nav-links li:first-child {
@@ -938,7 +938,6 @@ ul li a#btn:hover {
 }
 
 #blinking-animation {
-    color: rgb(255, 255, 255);
     animation: blink-anim 2s infinite;
 }
 @keyframes blink-anim {
@@ -961,7 +960,13 @@ footer {
   margin-bottom:20px;
 }
 
+a:hover {
+  color: var(--base-bl-text-focus);
+}
 
+.logo:hover {
+  color: var(--base-bl-text-focus);
+}
 
 
 ul.starred-list li {
@@ -969,4 +974,17 @@ ul.starred-list li {
   padding: 0; 
   padding-bottom: 10px;   
       /* remove default padding */
+}
+
+.logo-wrapper {
+  text-decoration: none; /* or whatever your base style is */
+}
+
+.logo-wrapper:hover #grotesk-600,
+.logo-wrapper:hover #blinking-animation {
+  color: var(--base-bl-text-focus); /* your hover color */
+}
+
+.blinking {
+  margin-left: -4px;
 }
