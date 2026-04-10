@@ -46,10 +46,6 @@ function draw() {
       // dithering effect (threshold pattern)
       let threshold = ((x + y) % (spacing * 2)) < spacing ? 0 : 0.6;
 
-      if (intensity > threshold) {
-        ctx.fillStyle = `rgba(0, 255, 100, ${intensity})`;
-        ctx.fillRect(x, y, 2, 2);
-      }
     }
   }
 

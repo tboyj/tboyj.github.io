@@ -3,7 +3,8 @@
   --base-white: #F7F7F2;
   --base-bl-compl: #272222;
   --base-wh-compl: #d3c3c3;
-  --accent-1: #8C2C2C;
+  --accent-1: #8C2C2C; 
+  --accent-1-rgb: rgba(140, 44, 44);
   --accent-2: rgba(140, 44, 44, 0.8);
   --accent-3: rgba(140, 44, 44, 0.6);
   --accent-4: rgba(140, 44, 44, 0.4);
