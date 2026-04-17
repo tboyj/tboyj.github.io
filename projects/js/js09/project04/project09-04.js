@@ -19,38 +19,34 @@ window.addEventListener("puzzleSolved", updateRecord);
 
 // Event listener that is run when the page loads
 window.addEventListener("load", function() {
-      if (this.document.cookie) {
-            bestText.textContent = "Best Time: " + getBestTime() + " seconds";
+      if (document.cookie) {
+            bestText.textContent = getBestTime() + " seconds";
       }
 });
 
 function getBestTime() {
-   let cookies = document.cookie.split("; ");
-
-   for (let cookie of cookies) {
-      let [name, value] = cookie.split("=");
-
-      if (name === "bestTime") {
-         return parseInt(value);
-      }
+   if (document.cookie) {
+      let cookieArray = document.cookie.split("=");
+      return parseInt(cookieArray[1]);
+   } else {
+      return 9999; // Return a very high time if no cookie is set
    }
-
-   return 9999;
+   
 }
 
 function updateRecord() {
-   let solutionTimer = parseInt(clockTimer.textContent);
-
+   // store a the value of the document element with the id timer within it 
+   let solutionTime = id("timer").textContent;
+   // convert the value to an integer 
+   solutionTime = parseInt(solutionTime);
+   // get the best time from the cookie
    let bestTime = getBestTime();
-
-   if (solutionTimer < bestTime) {
-      setBestTime(solutionTimer);
-      bestText.textContent = "Best Time: " + solutionTimer + " seconds";
-   } else {
-      bestText.textContent = "Best Time: " + bestTime + " seconds";
+   // if the solution time is less than the best time, update the cookie and the page text
+   if (solutionTime < bestTime) {
+      document.cookie = "bestTime=" + solutionTime;
+      bestText.textContent = solutionTime + " seconds";
    }
+   document.cookie = "puzzle8Best=" + solutionTime + "; max-age=31536000"; // Set cookie to expire in 1 year
+   console.log("cookie set: " + document.cookie);
 }
 
-function setBestTime(time) {
-   document.cookie = "bestTime=" + time + "; max-age=" + (60 * 60 * 24 * 90);
-}
