@@ -10,6 +10,20 @@
       Filename: js09b.js
  */
 
+      window.addEventListener("load", function () {
+
+   let params = new URLSearchParams(window.location.search);
+
+   document.getElementById("name").textContent = params.get("name");
+   document.getElementById("email").textContent = params.get("email");
+   document.getElementById("phone").textContent = params.get("phone");
+   document.getElementById("address").textContent = params.get("address");
+   document.getElementById("city").textContent = params.get("city");
+   document.getElementById("state").textContent = params.get("state");
+   document.getElementById("zip").textContent = params.get("zip");
+
+});
+
       // get text string from address bar 
       let queryString = location.search.slice(1);
 
