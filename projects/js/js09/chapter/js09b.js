@@ -57,6 +57,7 @@
 
       // store data to local storage after user clicks submit button
       document.getElementById("signupBtn").addEventListener("click", function() {
+            console.log("signup button clicked");
             let formFields = document.querySelectorAll("#contactInfo input, input[type='radio'], textarea");
             for (let fields of formFields) {
                   localStorage.setItem(fields.name, fields.value);
