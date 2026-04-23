@@ -1,31 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script src="../components/footer.js"></script>
-        <script src="../components/navbar.js"></script>
-        <link rel="stylesheet" href="../global.css" />
-        <title>Jackson Philips</title>
-    </head>
-    <body>
-        <site-navbar></site-navbar>
-        <main>
-                <h1>Heading 1</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                <h2>Heading 2</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                <h3>Heading 3</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-        </main>
-    <script>
-        lucide.createIcons();
-    </script>
-    </body>
-    <footer>
-        <site-footer></site-footer>
-    </footer>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../components/navbar.js"></script>
+  <script src="../components/footer.js"></script>
+  <link rel="stylesheet" href="../global.css"/>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <title>Blog | tboyj</title>
+  <style>
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
 
+    .blog-header {
+      margin-bottom: 56px;
+    }
+
+    .blog-header h1 {
+      font-family: var(--font-bricolage, sans-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: var(--base-white, white);
+    }
+
+    .blog-header p {
+      font-family: var(--font-dm, sans-serif);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .post-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .post-card:first-child {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .post-card:hover {
+      opacity: 0.6;
+    }
+
+    .post-card:hover .post-card-title {
+      color: var(--accent-1, white);
+    }
+
+    .post-card-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .post-card-title {
+      font-family: var(--font-bricolage, sans-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--base-white, white);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .post-card-desc {
+      font-family: var(--font-dm, sans-serif);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .post-card-date {
+      font-family: var(--font-dm, sans-serif);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+
+    .empty-msg {
+      font-family: var(--font-dm, sans-serif);
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      padding: 80px 0;
+    }
+  </style>
+</head>
+<body>
+  <site-navbar path="/blog"></site-navbar>
+
+  <main>
+    <div class="blog-header">
+      <h1>/blog_</h1>
+      <p>thoughts, notes, and writeups.</p>
+    </div>
+    <div class="post-list" id="post-list">
+      <p class="empty-msg">Loading...</p>
+    </div>
+  </main>
+
+  <footer>
+    <site-footer></site-footer>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    async function loadIndex() {
+      const list = document.getElementById("post-list");
+
+      try {
+        const indexRes = await fetch("posts/index.json");
+        if (!indexRes.ok) throw new Error();
+        const ids = await indexRes.json();
+
+        if (!ids.length) {
+          list.innerHTML = `<p class="empty-msg">No posts yet.</p>`;
+          return;
+        }
+
+        const posts = await Promise.all(
+          ids.map(async (id) => {
+            try {
+              const res = await fetch(`posts/${id}/metadata.json`);
+              if (!res.ok) return null;
+              const meta = await res.json();
+              return { id, ...meta };
+            } catch {
+              return null;
+            }
+          })
+        );
+
+        const valid = posts
+          .filter(Boolean)
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        if (!valid.length) {
+          list.innerHTML = `<p class="empty-msg">No posts found.</p>`;
+          return;
+        }
+
+        list.innerHTML = valid.map((post) => {
+          const date = new Date(post.date).toLocaleDateString("en-US", {
+            year: "numeric", month: "short", day: "numeric"
+          });
+          return `
+            <a class="post-card" href="post.html?id=${post.id}">
+              <div class="post-card-left">
+                <span class="post-card-title">${post.title}</span>
+                <span class="post-card-desc">${post.description}</span>
+              </div>
+              <span class="post-card-date">${date}</span>
+            </a>
+          `;
+        }).join("");
+
+      } catch {
+        list.innerHTML = `<p class="empty-msg">Could not load posts.</p>`;
+      }
+    }
+
+    loadIndex();
+  </script>
+</body>
 </html>

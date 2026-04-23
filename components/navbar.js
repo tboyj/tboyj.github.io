@@ -1,7 +1,14 @@
 class SiteNavbar extends HTMLElement {
+  static get observedAttributes() {
+    return ["path", "labels"];
+  }
+
+  attributeChangedCallback() {
+    this._renderBreadcrumb();
+  }
+
   connectedCallback() {
     this.innerHTML = `
-    
       <style>
         nav {
           position: sticky;
@@ -16,22 +23,89 @@ class SiteNavbar extends HTMLElement {
           z-index: 100;
         }
 
+        .nav-left {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
         .brand {
-          font-weight: 600;
-          font-size: 1.25rem;
+          font-weight: 400;
           text-decoration: none;
           color: white;
+          font-size: 1.25rem;
+          font-family: var(--font-bricolage);
+          transition: color 0.2s ease;
+          white-space: nowrap;
+        }
+
+        .brand:hover {
+          color: var(--base-wh-compl);
+        }
+
+        .brand img {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          vertical-align: middle;
+          opacity: 1;
+          transition: opacity 0.2s ease;
+        }
+
+        .brand img:hover {
+          opacity: 0.8;
+        }
+
+        .breadcrumb-inline {
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+          font-weight: 400;
+          gap: 8px;
+        }
+
+        .bc-sep {
+          font-family: var(--font-dm, sans-serif);
+          font-weight: 900;
+          color: var(--accent-1);
+          user-select: none;
+          font-size: 2rem;
+        }
+
+        .bc-crumb {
+          font-family: var(--font-bricolage, sans-serif);
+          font-size: 1.25rem;
+          font-weight: 400;
+          color: var(--base-white);
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+
+        .bc-crumb:hover {
+          color: var(--accent-1);
+        }
+
+        a.bc-crumb.current {
+          color: var(--base-white);
+          cursor: pointer;
+          font-size: 1.25rem;
+          font-weight: 400;
+          transition: color 0.2s ease;
+        }
+
+        a.bc-crumb.current:hover {
+          color: var(--base-wh-compl);
         }
 
         .menu-btn {
-            font-size: 1.25rem;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            text-align: center;
-            justify-content: center;
-            display: flex;
-            align-items: center;
+          font-size: 1.25rem;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+          text-align: center;
+          justify-content: center;
+          display: flex;
+          align-items: center;
         }
 
         .sidebar {
@@ -56,7 +130,6 @@ class SiteNavbar extends HTMLElement {
           display: none;
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.4);
           z-index: 150;
         }
 
@@ -64,65 +137,42 @@ class SiteNavbar extends HTMLElement {
           display: block;
         }
 
-        .links {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .links a {
-          color: white;
-          text-decoration: none;
-          margin: 0 16px;
-          padding: 12px;
-          border-radius: 8px;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-          position: relative;
-        }
-        .links a::after {
-        content: "...";
-        display: inline-block;
-        opacity: 0;
-        transform: translateY(2px);
-        }
-
-        .links a:hover::after {
-        animation: showDots 0.3s ease forwards;
-        }
-
-        @keyframes showDots {
-        0%   { opacity: 0; transform: translateY(2px); }
-        100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes dots {
-        0%   { content: ""; }
-        33%  { content: "."; }
-        66%  { content: ".."; }
-        100% { content: "..."; }
-        }
-
         .close-btn {
-            font-size: 1.25rem;
-            width: 32px;
-            height: 32px;
-            align-self: flex-end;
-            margin: 16px;
-            float: right;
-            cursor: pointer;
-            text-align: center;
-            justify-content: center;
-            display: flex;
-            align-items: center;
+          font-size: 1.25rem;
+          width: 32px;
+          height: 32px;
+          align-self: flex-end;
+          margin: 16px;
+          float: right;
+          cursor: pointer;
+          text-align: center;
+          justify-content: center;
+          display: flex;
+          align-items: center;
         }
-            .close-btn:hover {
-            color: var(--accent-1);
-  }
+
+        .close-btn:hover {
+          color: var(--accent-1);
+        }
+
+        site-navbar nav .bc-crumb {
+          color: var(--base-white) !important;
+        }
+
+        site-navbar nav .bc-crumb:hover {
+          color: var(--base-wh-compl) !important;
+        }
+        site-navbar nav .bc-crumb.current {
+          pointer-events: none !important;
+
+        }
       </style>
-    
+
       <nav>
-        <a href="/" class="brand">tboyj</a>
+        <div class="nav-left">
+          <a href="/" class="brand">tboyj</a>
+          <div class="breadcrumb-inline" id="bc"></div>
+        </div>
         <button class="menu-btn dashed-transition-btn"><i data-lucide="menu"></i></button>
       </nav>
 
@@ -130,28 +180,27 @@ class SiteNavbar extends HTMLElement {
 
       <div class="sidebar">
         <div class="links">
-        <button class="close-btn dashed-transition-btn"><i data-lucide="x"></i></button>
-          <a href="#about">about</a>
-          <a href="#projects">projects</a>
-          <a class="archive" href="#assignments">assignments</a>
+          <button class="close-btn dashed-transition-btn"><i data-lucide="x"></i></button>
+          <a href="/about">about</a>
+          <a href="/projects">projects</a>
+          <a class="archive" href="/assignments">assignments</a>
           <hr>
-          <a href="/blog">blog</a>
-          <a href="../documents/" target="_blank">resume + cv</a>
+          <a href="/awards">awards</a>
+          <a href="/documents" target="_blank">resume + cv</a>
           <hr>
+          <a class="redbtn" href="/blog">blog</a>
         </div>
         <div class="contact-icons">
-            <a href="mailto:jphilips.dev@gmail.com">
-                <i class="fas fa-envelope"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/jackson-philips" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-
-            <a href="https://github.com/tboyj" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>  
+          <a href="mailto:jphilips.dev@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/jackson-philips" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/tboyj" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
       </div>
     `;
 
@@ -175,6 +224,49 @@ class SiteNavbar extends HTMLElement {
         overlay.classList.remove("open");
       }
     });
+
+    this._renderBreadcrumb();
+  }
+
+  _renderBreadcrumb() {
+    const bc = this.querySelector("#bc");
+    if (!bc) return;
+
+    const rawPath = this.getAttribute("path") || window.location.pathname;
+    const segments = rawPath.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+
+    if (segments.length === 0) {
+      bc.innerHTML = "";
+      return;
+    }
+
+    let labelMap = {};
+    try {
+      labelMap = JSON.parse(this.getAttribute("labels") || "{}");
+    } catch (_) {}
+
+    let accumulated = "";
+    const crumbs = segments.map((seg) => {
+      accumulated += `/${seg}`;
+      return {
+        label: labelMap[seg] ?? seg.replace(/-/g, " "),
+        href: accumulated,
+      };
+    });
+
+    bc.innerHTML = crumbs
+      .map((crumb, i) => {
+        const isLast = i === crumbs.length - 1;
+        return `
+          <span class="bc-sep" aria-hidden="true">›</span>
+          ${
+            isLast
+              ? `<a class="bc-crumb current" href="${crumb.href}" aria-current="page">${crumb.label}</a>`
+              : `<a class="bc-crumb" href="${crumb.href}">${crumb.label}</a>`
+          }
+        `;
+      })
+      .join("");
   }
 }
 
