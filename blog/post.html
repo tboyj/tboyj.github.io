@@ -10,7 +10,7 @@
   <script src="../components/footer.js"></script>
   <link rel="stylesheet" href="../global.css"/>
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
-  <title>Blog | tboyj</title>
+  <title>blog | tboyj</title>
   <style>
 
     #post-content {
@@ -41,7 +41,7 @@
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 700;
       line-height: 1.1;
-      margin: 0 0 1em;
+      margin: 0 0 12px;
       color: var(--base-white, white);
     }
 
@@ -49,14 +49,14 @@
       font-family: var(--font-dm, sans-serif);
       font-size: 1rem;
       color: rgba(255,255,255,0.45);
-      margin: 0 0 0px;
+      margin: 0 0 12px;
       line-height: 1.6;
     }
 
     .post-divider {
       border: none;
       border-top: 1px solid rgba(255,255,255,0.08);
-      margin: 0 0 2em;
+      margin: 0 0 12px;
     }
 
     /* Markdown body styles */
@@ -91,7 +91,7 @@
     .md-body a:hover { opacity: 0.7; }
 
     .md-body code {
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-family: var(--font-datatype), monospace;
       font-size: 0.85em;
       background: rgba(255,255,255,0.07);
       padding: 2px 6px;

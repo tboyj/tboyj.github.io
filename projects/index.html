@@ -9,7 +9,7 @@
         <script src="../components/navbar.js"></script>
         <link rel="stylesheet" href="../global.css" />
         <link rel="icon" href="../favicon.ico" type="image/x-icon">
-        <title>Jackson Philips</title>
+        <title>projects | tboyj</title>
     </head>
     <body>
         <site-navbar></site-navbar>
@@ -17,13 +17,14 @@
         <main>
             <section>
             <div class="panel">
-                <div class="projects-header">
-                    <h1>/projects_</h1>
-                    <p>the lovely wonderland of projects</p>
+                <div class="project-header">
+                    <h1>projects</h1>
+                    <p class="subtext">the lovely wonderland of projects</p>
                 </div>
 
                 <div class="project-list" id="project-list">
-                    <p class="empty-msg">Loading...</p>
+                    <div class="project" title="tboyj/chronoquest"></div>
+                    <div class="project" title="ekatomp4/Mental-Health"></div>
                 </div>
             </div>
             </section>
@@ -32,11 +33,156 @@
         lucide.createIcons();
     </script>
     <script>
-        
+        const projectList = document.getElementById("project-list");
+
+        async function loadProject(el) {
+            const repoPath = el.getAttribute("title"); // "owner/repo"
+            if (!repoPath) return;
+
+            try {
+                // Fetch repo data
+                const repoRes = await fetch(`https://api.github.com/repos/${repoPath}`);
+                if (!repoRes.ok) throw new Error("Repo not found");
+                const repo = await repoRes.json();
+
+                // Fetch contributors
+                const contribRes = await fetch(repo.contributors_url);
+                const contributors = contribRes.ok ? await contribRes.json() : [];
+
+                // Build UI
+                el.innerHTML = `
+                    <h3>
+                        <a class="title" href="${repo.html_url}" target="_blank" rel="noreferrer">
+                            ${repo.full_name}
+                        </a>
+                    </h3>
+                    <p class="subtext">${repo.description || "No description available."}</p>
+                    <div class="contributors">
+                        ${contributors.slice(0, 5).map(c => `
+                            <a href="${c.html_url}" target="_blank" rel="noreferrer" title="${c.login}">
+                                <img src="${c.avatar_url}" alt="${c.login}" width="32" height="32" style="border-radius:50%;">
+                            </a>
+                        `).join("")}
+                    </div>
+                `;
+            } catch (err) {
+                el.innerHTML = `<p class="error">Failed to load ${repoPath}</p>`;
+                console.error(err);
+            }
+        }
+
+        async function initProjects() {
+            const projects = projectList.querySelectorAll("[title]");
+
+            if (!projects.length) {
+                projectList.innerHTML = `<p class="empty-msg">No projects found.</p>`;
+                return;
+            }
+
+            // Clear loading message
+            projectList.innerHTML = "";
+
+            projects.forEach(el => {
+                el.classList.add("project-card");
+                projectList.appendChild(el);
+                loadProject(el);
+            });
+        }
+
+        initProjects();
     </script>
     </body>
     <footer>
         <site-footer></site-footer>
     </footer>
+
+    <style>
+        main {
+            padding: 3em 1.5em 6em;
+        }
+        .project-header h1 {
+            font-family: var(--font-bricolage, sans-serif);
+            font-size: clamp(2.5rem, 7vw, 3.5rem);
+            font-weight: 700;
+            margin: 0 0 12px;
+            color: var(--base-white, white);
+        }
+        .project-header .subtext {
+            font-family: var(--font-dm, sans-serif);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin: 0 0 0px;
+            line-height: 1.6;
+
+        }
+
+        .project-header {
+            margin-bottom: 48px;
+        }
+
+        #project-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .project {
+            background: linear-gradient(var(--base-bl-compl-2) 40%, var(--base-bl-compl-2) 160%);
+            padding:1.25em;
+             height: 100%;
+            display: flex;
+            flex-direction: column;  
+            border-radius: 8px;  
+            border: 1px solid var(--base-bl-compl-2); 
+            transition: border 0.15s;
+        }
+        .project:hover {
+            border: 1px solid rgba(130, 130, 130, 0.3);
+        }
+        .project h3 {
+            font-family: var(--font-bricolage);
+            font-size: 1.25em;
+            margin: 0 0 10px;
+            justify-content: space-between;
+        }
+
+        .project .title {
+            color: var(--base-white);
+            text-decoration: none;
+        }
+        .project .title:hover {
+            color: var(--accent-1);
+            text-decoration:underline ;
+        }
+
+        .project .subtext {
+            font-family: var(--font-dm, sans-serif);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin: 0 0 10px;
+            line-height: 1.6;
+
+        }
+
+        .project .stats {
+            font-family: var(--font-datatype);
+        }
+        .project .contributors {
+            margin-top: auto;
+        }
+        
+        .project .contributors a {
+            text-decoration: none;
+            transform: scale(1);
+        }
+        .project .contributors a img {
+            transform: scale(1);
+            transition: transform 0.15s;
+        }
+        .project .contributors a img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 
 </html>

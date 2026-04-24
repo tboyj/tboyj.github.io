@@ -10,48 +10,90 @@
         <link rel="stylesheet" href="global.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         
-        <title>Jackson Philips</title>
+        <title>tboyj</title>
     </head>
     <body>
         <site-navbar></site-navbar>
     
         <main>
-            <section class="hero-wrap">
+            <section>
+            <div class="hero-wrap">
             <div class="hero-left">
             <div class="hero-tagline">
-                <span>design <span>*</span> code <span>*</span> systems (aka TBOYJ)</span>
+                <div class="contact-icons">
+                    <a href="mailto:jphilips.dev@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
-            <h1 class="hero-name">/Jackson<br>Philips<span class="cursor">_</span></h1>
+            <h1 class="hero-name">Jackson<br>Philips<span class="cursor"></span></h1>
             <div class="hero-links">
                 <div class="hero-row">
                 <a class="hero-btn" href="/blog">blog</a>
                 <a class="hero-btn" href="/projects">projects</a>
                 </div>
-                <a class="hero-btn wide" href="/documents">resume + cv</a>
+                <a class="hero-btn wide" href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
             </div>
             </div>
         
             <div class="hero-right">
+                <p>temporary element (hand drawn -> svg GIF, claude loading style ???)</p>
+            </div>
             </div>
         </section>
             <section class="about">
-                <h1 class="bricolage">Heading 1</h1>
-                <p class="dm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                <h2 class="bricolage">Heading 2</h2>
-                <p class="dm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                <h3 class="bricolage">Heading 3</h3>
-                <p class="dm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+                <div class="area-intro-1">
+                    <h1 class="bricolage main-header">about</h1>
+                    <h1 class="bricolage">hello!</h1>
+                    <p class="dm"></p>
+                    <h2 class="bricolage">Heading 2</h2>
+                    <p class="dm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+                    <h2 class="bricolage">Heading 3</h3>
+                    <p class="dm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+                </div>
             </section>
             </main>
     <script>
         lucide.createIcons();
     </script>
-    </body>
     <footer>
         <site-footer></site-footer>
     </footer>
+    </body>
+
       <style>
+        main {
+        display: flex;
+        flex-direction: column;
+        }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .hero-tagline .contact-icons {
+            display: flex;
+            gap: 16px;
+            text-align: center;
+            justify-content: center;
+            padding: 0 0;
+        }
+        .hero-tagline .contact-icons i {
+            font-size: 2.5em;
+            color: var(--base-white);
+            transition: color 0.1s ease;
+            cursor: pointer;
+
+        }
+        .hero-tagline .contact-icons i:hover {
+            color: var(--accent-1);
+        }
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
 
   </style>
 

@@ -6,6 +6,10 @@
     --base-white: #F7F7F2;
     --base-bl-compl: #131315;
     --base-bl-compl-2: #1D1D20;
+    --base-bl-compl-3: #27272B;
+    --base-bl-compl-4: #303036;
+    --base-bl-compl-5: #3A3A41;
+    --base-bl-compl-6: #43434C;
     --base-wh-compl: #d3c3c3;
     --accent-1: #8C2C2C;
     --accent-2: rgba(140, 44, 44, 0.8);
@@ -44,6 +48,7 @@ body {
 main {
     flex: 1;
     flex-grow: 1;
+    
 }
 
 code {
@@ -86,7 +91,7 @@ code {
     color: var(--base-wh-compl);
     background: linear-gradient(
     to right,
-    var(--base-bl-compl) 0%,
+    var(--accent-5) 0%,
     var(--base-black) 100%
     );
 }
@@ -193,18 +198,14 @@ animation: showDots 0.3s ease forwards;
 
 .post-card-title {
     font-family: var(--font-bricolage, sans-serif);
-    font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--base-white, white);
-    transition: color 0.2s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 1.25em;
 }
 
-.post-card:hover .post-card-title {
-  color: var(--accent-1);
-}
 
 
 .post-tag-btn {
@@ -216,23 +217,25 @@ border-radius: 20px;
 border: 1px solid rgba(255,255,255,0.1);
 background: var(--base-bl-compl-2);
 color: rgba(255,255,255,0.4);
-cursor: pointer;
+cursor: default;
 transition: background 0.15s, color 0.15s, border-color 0.15s;
 /* prevent the card anchor from firing when clicking a tag */
 position: relative;
 z-index: 1;
 }
 
-.post-tag-btn:hover,
 .post-tag-btn.active {
 border-color: var(--accent-1);
-color: var(--accent-1);
-background: rgba(140,44,44,0.12);
+color: var(--base-bl-text);
+background: var(--accent-3);
 }
 
 /* new stuff */
 .panel {
     margin:2em;
+}
+.panel-s {
+    margin: 1em;
 }
 
 a.hero-btn {
@@ -245,7 +248,7 @@ a.hero-btn {
     .hero-wrap {
       position: relative;
       width: 100%;
-      min-height: 92vh;
+      min-height: 94vh;
       background-color: var(--base-black-2);
       overflow: hidden;
       display: flex;
@@ -257,10 +260,14 @@ a.hero-btn {
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 36px 40px;
+      margin-left:4em;
+      
       position: relative;
       z-index: 2;
       align-self: center;
+    }
+    .hero-right {
+        margin-right:4em;
     }
  
     .hero-tagline {

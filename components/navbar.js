@@ -21,12 +21,16 @@ class SiteNavbar extends HTMLElement {
           background: var(--base-black);
           color: white;
           z-index: 100;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .nav-left {
           display: flex;
           align-items: center;
           gap: 8px;
+          white-space: nowrap;
+          text-overflow: clip;
+          overflow: hidden;
         }
 
         .brand {
@@ -106,6 +110,7 @@ class SiteNavbar extends HTMLElement {
           justify-content: center;
           display: flex;
           align-items: center;
+          margin-left: 16px;
         }
 
         .sidebar {
@@ -166,6 +171,8 @@ class SiteNavbar extends HTMLElement {
           pointer-events: none !important;
 
         }
+          
+
       </style>
 
       <nav>
@@ -186,7 +193,7 @@ class SiteNavbar extends HTMLElement {
           <a class="archive" href="/assignments">assignments</a>
           <hr>
           <a href="/awards">awards</a>
-          <a href="/documents" target="_blank">resume + cv</a>
+          <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
           <hr>
           <a class="redbtn" href="/blog">blog</a>
         </div>
@@ -194,10 +201,10 @@ class SiteNavbar extends HTMLElement {
           <a href="mailto:jphilips.dev@gmail.com">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://www.linkedin.com/in/jackson-philips" target="_blank">
+          <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://github.com/tboyj" target="_blank">
+          <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">
             <i class="fab fa-github"></i>
           </a>
         </div>
