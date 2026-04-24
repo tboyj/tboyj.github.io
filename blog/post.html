@@ -22,25 +22,26 @@
     .post-meta {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       margin-bottom: 48px;
-      font-family: var(--font-dm, sans-serif);
-      font-size: 0.8rem;
+      font-family: var(--font-datatype, sans-serif);
+      font-size: 0.85rem;
       color: rgba(255,255,255,0.35);
       text-transform: lowercase;
-      letter-spacing: 0.04em;
+      justify-content: space-between;
+      
     }
 
     .post-meta .dot {
-      opacity: 0.3;
+      opacity: 0;
     }
 
     .post-title {
       font-family: var(--font-bricolage, sans-serif);
-      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 700;
       line-height: 1.1;
-      margin: 0 0 16px;
+      margin: 0 0 1em;
       color: var(--base-white, white);
     }
 
@@ -48,14 +49,14 @@
       font-family: var(--font-dm, sans-serif);
       font-size: 1rem;
       color: rgba(255,255,255,0.45);
-      margin: 0 0 40px;
+      margin: 0 0 0px;
       line-height: 1.6;
     }
 
     .post-divider {
       border: none;
       border-top: 1px solid rgba(255,255,255,0.08);
-      margin: 0 0 48px;
+      margin: 0 0 2em;
     }
 
     /* Markdown body styles */
@@ -167,15 +168,17 @@
       text-align: center;
       padding: 80px 0;
     }
-    
+
   </style>
 </head>
 <body>
   <site-navbar id="navbar"></site-navbar>
 
   <main>
+    <div class="panel">
     <div id="post-content">
       <p class="error-msg">Loading...</p>
+    </div>
     </div>
   </main>
 
@@ -217,10 +220,16 @@
         const date = new Date(meta.date).toLocaleDateString("en-US", {
           year: "numeric", month: "long", day: "numeric"
         });
+        const tagsHtml = (meta.tags || []).length
+          ? `<div class="post-card-tags" style="margin: 0 0 2em; display: flex; gap: 6px;">
+              ${meta.tags.map(t => `<span class="post-tag-btn">${t}</span>`).join("")}
+            </div>`
+          : "";
 
         container.innerHTML = `
           <h1 class="post-title">${meta.title}</h1>
           <p class="post-description">${meta.description}</p>
+          ${tagsHtml}
           <div class="post-meta">
             <span>${date}</span>
             <span class="dot">·</span>

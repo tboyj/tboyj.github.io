@@ -190,6 +190,46 @@ animation: showDots 0.3s ease forwards;
     animation: none;
     opacity: 1;
 }
+
+.post-card-title {
+    font-family: var(--font-bricolage, sans-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--base-white, white);
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-card:hover .post-card-title {
+  color: var(--accent-1);
+}
+
+
+.post-tag-btn {
+font-family: var(--font-datatype, sans-serif);
+font-size: 0.75rem;
+text-transform: lowercase;
+padding: 2px 8px;
+border-radius: 20px;
+border: 1px solid rgba(255,255,255,0.1);
+background: var(--base-bl-compl-2);
+color: rgba(255,255,255,0.4);
+cursor: pointer;
+transition: background 0.15s, color 0.15s, border-color 0.15s;
+/* prevent the card anchor from firing when clicking a tag */
+position: relative;
+z-index: 1;
+}
+
+.post-tag-btn:hover,
+.post-tag-btn.active {
+border-color: var(--accent-1);
+color: var(--accent-1);
+background: rgba(140,44,44,0.12);
+}
+
 /* new stuff */
 .panel {
     margin:2em;

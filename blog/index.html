@@ -11,114 +11,289 @@
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <title>Blog | tboyj</title>
   <style>
-    main {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 24px 96px;
-    }
+  main {
+    padding: 3em 1.5em 6em;
+  }
 
+  .blog-header {
+    margin-bottom: 40px;
+  }
+
+  .blog-header h1 {
+    font-family: var(--font-bricolage, sans-serif);
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: var(--base-white, white);
+  }
+
+  .blog-header p {
+    font-family: var(--font-dm, sans-serif);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+    margin: 0;
+  }
+
+  /* Search + tag filter row */
+  .filter-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 32px;
+    align-items: stretch;
+  }
+
+  .search-input {
+    flex: 1;
+    font-family: var(--font-datatype, sans-serif);
+    font-size: 1rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--base-bl-compl-2);
+    color: var(--base-white);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .search-input::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .search-input:focus {
+    border-color: var(--accent-1);
+  }
+
+  /* Tag dropdown */
+  .tag-dropdown-wrap {
+    position: relative;
+  }
+
+  .tag-dropdown-btn {
+    font-family: var(--font-dm, sans-serif);
+    font-size: 1rem;
+    padding: 14px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--base-bl-compl-2);
+    color: var(--base-white);
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 0.15s, color 0.15s;
+    height: 100%;
+  }
+
+  .tag-dropdown-btn:hover,
+  .tag-dropdown-btn.open {
+    border-color: var(--accent-1);
+    color: var(--base-wh-compl);
+  }
+
+  .tag-dropdown-btn.has-selection {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+  }
+
+  .tag-dropdown-btn .chevron {
+    font-size: 0.6rem;
+    opacity: 0.5;
+    transition: transform 0.15s;
+  }
+
+  .tag-dropdown-btn.open .chevron {
+    transform: rotate(180deg);
+  }
+
+  .tag-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    min-width: 160px;
+    background: var(--base-bl-compl-2, #1D1D20);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 6px;
+    z-index: 50;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .tag-dropdown-menu.open {
+    display: flex;
+  }
+
+  .tag-option {
+    font-family: var(--font-dm, sans-serif);
+    font-size: .9rem;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    transition: background 0.1s, color 0.1s;
+    user-select: none;
+  }
+
+  .tag-option:hover {
+    background: rgba(255,255,255,0.05);
+    color: var(--base-white);
+  }
+
+  .tag-option.selected {
+    color: var(--accent-1);
+  }
+
+  .tag-option .check {
+    opacity: 0;
+  }
+
+  .tag-option.selected .check {
+    opacity: 1;
+  }
+
+  .tag-dropdown-clear {
+    font-family: var(--font-dm, sans-serif);
+    font-size: .90rem;
+    color: rgba(255,255,255,0.2);
+    padding: 10px 10px;
+    cursor: pointer;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 4px;
+    padding-top: 8px;
+    transition: color 0.1s;
+  }
+
+  .tag-dropdown-clear:hover {
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Post list */
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .post-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .post-card:first-child {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .post-card:hover {
+    opacity: 1;
+  }
+
+  .post-card-title {
+    font-family: var(--font-bricolage, sans-serif);
+    font-size: 1.25rem;
+    color: var(--base-white);
+    transition: color 0.1s ease;
+  }
+
+  .post-card:hover .post-card-title {
+    color: var(--accent-1);
+  }
+
+  .post-card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .post-card-desc {
+    font-family: var(--font-dm, sans-serif);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .post-card-date {
+    font-family: var(--font-datatype, sans-serif);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Inline tag chips on card */
+  .post-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+
+
+  .empty-msg {
+    font-family: var(--font-dm, sans-serif);
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 80px 0;
+  }
+
+  @media screen and (max-width: 600px) {
     .blog-header {
-      margin-bottom: 56px;
-    }
-
-    .blog-header h1 {
-      font-family: var(--font-bricolage, sans-serif);
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      margin: 0 0 12px;
-      color: var(--base-white, white);
-    }
-
-    .blog-header p {
-      font-family: var(--font-dm, sans-serif);
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.4);
-      margin: 0;
-    }
-
-    .post-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .post-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .post-card:first-child {
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .post-card:hover {
-      opacity: 0.6;
-    }
-
-    .post-card:hover .post-card-title {
-      color: var(--accent-1, white);
-    }
-
-    .post-card-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      min-width: 0;
-    }
-
-    .post-card-title {
-      font-family: var(--font-bricolage, sans-serif);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--base-white, white);
-      transition: color 0.2s ease;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .post-card-desc {
-      font-family: var(--font-dm, sans-serif);
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .post-card-date {
-      font-family: var(--font-dm, sans-serif);
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
-      white-space: nowrap;
-      flex-shrink: 0;
-      letter-spacing: 0.03em;
-    }
-
-    .empty-msg {
-      font-family: var(--font-dm, sans-serif);
-      color: rgba(255,255,255,0.3);
       text-align: center;
-      padding: 80px 0;
     }
+    .post-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .post-card-date {
+      align-self: center;
+    }
+    .post-card-tags {
+      justify-content: center;
+    }
+    .tag-filter {
+      justify-content: center;
+    }
+  }
   </style>
 </head>
 <body>
   <site-navbar path="/blog"></site-navbar>
 
   <main>
-    <div class="blog-header">
-      <h1>/blog_</h1>
-      <p>thoughts, notes, and writeups.</p>
-    </div>
-    <div class="post-list" id="post-list">
-      <p class="empty-msg">Loading...</p>
+    <div class="panel">
+      <div class="blog-header">
+        <h1>/blog_</h1>
+        <p>the lovely wonderland of programming</p>
+      </div>
+
+      <div class="filter-row">
+        <input class="search-input" id="search-input" type="text" placeholder="search by title" autocomplete="off" />
+        <div class="tag-dropdown-wrap" id="tag-dropdown-wrap">
+          <button class="tag-dropdown-btn" id="tag-dropdown-btn">
+            tags <span class="chevron">▼</span>
+          </button>
+          <div class="tag-dropdown-menu" id="tag-dropdown-menu"></div>
+        </div>
+      </div>
+
+      <div class="post-list" id="post-list">
+        <p class="empty-msg">Loading...</p>
+      </div>
     </div>
   </main>
 
@@ -128,6 +303,76 @@
 
   <script>
     lucide.createIcons();
+
+    let allPosts = [];
+    let activeTags = new Set();
+    let searchQuery = "";
+
+    function applyFilters() {
+      const cards = document.querySelectorAll(".post-card");
+      cards.forEach(card => {
+        const cardTags = card.dataset.tags ? card.dataset.tags.split(",").filter(Boolean) : [];
+        const title = card.dataset.title || "";
+        const matchesSearch = !searchQuery || title.toLowerCase().includes(searchQuery);
+        const matchesTags = activeTags.size === 0 || [...activeTags].every(t => cardTags.includes(t));
+        card.style.display = matchesSearch && matchesTags ? "" : "none";
+
+        card.querySelectorAll(".post-tag-btn").forEach(btn => {
+          btn.classList.toggle("active", activeTags.has(btn.textContent));
+        });
+      });
+    }
+
+    function buildTagDropdown(tags) {
+      const menu = document.getElementById("tag-dropdown-menu");
+      const btn = document.getElementById("tag-dropdown-btn");
+      const wrap = document.getElementById("tag-dropdown-wrap");
+
+      if (!tags.length) { wrap.style.display = "none"; return; }
+
+      tags.forEach(tag => {
+        const opt = document.createElement("div");
+        opt.className = "tag-option";
+        opt.dataset.tag = tag;
+        opt.innerHTML = `<span class="check"></span>${tag}`;
+        opt.addEventListener("click", () => {
+          if (activeTags.has(tag)) activeTags.delete(tag);
+          else activeTags.add(tag);
+          opt.classList.toggle("selected", activeTags.has(tag));
+          btn.classList.toggle("has-selection", activeTags.size > 0);
+          const label = activeTags.size > 0 ? `tags (${activeTags.size})` : "tags";
+          btn.childNodes[0].textContent = label + " ";
+          applyFilters();
+        });
+        menu.appendChild(opt);
+      });
+
+      const clear = document.createElement("div");
+      clear.className = "tag-dropdown-clear";
+      clear.textContent = "clear all";
+      clear.addEventListener("click", () => {
+        activeTags.clear();
+        menu.querySelectorAll(".tag-option").forEach(o => o.classList.remove("selected"));
+        btn.classList.remove("has-selection");
+        btn.childNodes[0].textContent = "tags ";
+        applyFilters();
+      });
+      menu.appendChild(clear);
+
+      // Toggle open/close
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      // Close on outside click
+      document.addEventListener("click", (e) => {
+        if (!wrap.contains(e.target)) {
+          btn.classList.remove("open");
+          menu.classList.remove("open");
+        }
+      });
+    }
 
     async function loadIndex() {
       const list = document.getElementById("post-list");
@@ -149,35 +394,63 @@
               if (!res.ok) return null;
               const meta = await res.json();
               return { id, ...meta };
-            } catch {
-              return null;
-            }
+            } catch { return null; }
           })
         );
 
-        const valid = posts
+        allPosts = posts
           .filter(Boolean)
           .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        if (!valid.length) {
+        if (!allPosts.length) {
           list.innerHTML = `<p class="empty-msg">No posts found.</p>`;
           return;
         }
 
-        list.innerHTML = valid.map((post) => {
+        const tagSet = new Set();
+        allPosts.forEach(p => (p.tags || []).forEach(t => tagSet.add(t)));
+        const allTags = [...tagSet].sort();
+        buildTagDropdown(allTags);
+
+        // Wire search input
+        document.getElementById("search-input").addEventListener("input", (e) => {
+          searchQuery = e.target.value.trim().toLowerCase();
+          applyFilters();
+        });
+
+        // Render cards
+        list.innerHTML = allPosts.map((post) => {
           const date = new Date(post.date).toLocaleDateString("en-US", {
             year: "numeric", month: "short", day: "numeric"
           });
+          const tags = post.tags || [];
+          const tagsHtml = tags.length
+            ? `<div class="post-card-tags">${tags.map(t =>
+                `<button class="post-tag-btn" data-tag="${t}">${t}</button>`
+              ).join("")}</div>`
+            : "";
+
           return `
-            <a class="post-card" href="post.html?id=${post.id}">
+            <a class="post-card" href="post.html?id=${post.id}" data-tags="${tags.join(",")}" data-title="${post.title.toLowerCase()}">
               <div class="post-card-left">
                 <span class="post-card-title">${post.title}</span>
                 <span class="post-card-desc">${post.description}</span>
+                ${tagsHtml}
               </div>
               <span class="post-card-date">${date}</span>
             </a>
           `;
         }).join("");
+
+        // Wire up inline tag buttons — stop propagation so card link doesn't fire
+        list.querySelectorAll(".post-tag-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const tag = btn.dataset.tag;
+            setActiveTag(activeTag === tag ? null : tag);
+          });
+        });
 
       } catch {
         list.innerHTML = `<p class="empty-msg">Could not load posts.</p>`;

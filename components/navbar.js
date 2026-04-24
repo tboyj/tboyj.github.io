@@ -233,7 +233,7 @@ class SiteNavbar extends HTMLElement {
     if (!bc) return;
 
     const rawPath = this.getAttribute("path") || window.location.pathname;
-    const segments = rawPath.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+    const segments = rawPath.replace(/^\/|\/$/g, "").split("/").filter(s => Boolean(s) && s !== 'index.html');
 
     if (segments.length === 0) {
       bc.innerHTML = "";
