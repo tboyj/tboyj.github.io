@@ -31,6 +31,7 @@ class SiteNavbar extends HTMLElement {
           white-space: nowrap;
           text-overflow: clip;
           overflow: hidden;
+          margin-left: 8px;
         }
 
         .brand {
