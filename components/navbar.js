@@ -42,6 +42,7 @@ class SiteNavbar extends HTMLElement {
           font-family: var(--font-bricolage);
           transition: color 0.2s ease;
           white-space: nowrap;
+          user-select:none;
         }
 
         .brand:hover {
@@ -189,7 +190,7 @@ class SiteNavbar extends HTMLElement {
       <div class="sidebar">
         <div class="links">
           <button class="close-btn dashed-transition-btn"><i data-lucide="x"></i></button>
-          <a href="/about">about</a>
+          <a href="/#about">about</a>
           <a href="/projects">projects</a>
           <a class="archive" href="/assignments">assignments</a>
           <hr>

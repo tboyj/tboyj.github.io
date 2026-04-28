@@ -14,12 +14,86 @@
     </head>
     <body>
         <site-navbar></site-navbar>
-    
         <main>
-            <section>
+            <section class="hero">
+            <canvas id="bg"></canvas>
+            <script>
+            const canvas = document.getElementById("bg");
+            const ctx = canvas.getContext("2d");
+
+            let w, h;
+            function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener("resize", resize);
+
+            let mouse = { x: w / 2, y: h / 2 };
+            window.addEventListener("mousemove", (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            });
+
+            let t = 1;
+
+            // simple pseudo noise (fast + stable)
+            function noise(x, y) {
+            return Math.sin(x * 15.9898 + y * 75.233) * 43758.5453 % 1;
+            }
+
+            function draw() {
+            ctx.clearRect(0, 0, w, h);
+
+            const spacing = 8; // bigger = cleaner
+            const scale = 0.5;
+
+            for (let x = 0; x < w; x += spacing) {
+                for (let y = 0; y < h; y += spacing) {
+
+                // base noise (animated)
+                let n = noise(x * scale + t, y * scale + t);
+
+                // normalize noise
+                n = Math.abs(n);
+
+                // mouse influence (soft)
+                const dx = x - mouse.x;
+                const dy = y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const influence = Math.exp(-dist * 0.01);
+
+                n += influence * 2;
+
+                // dithering threshold
+                if (n > 0.55) {
+                    const brightness = 45 + n * 50;
+
+                    // subtle red tint
+                    ctx.fillStyle = `rgb(${brightness}, ${brightness * 0.3}, ${brightness * 0.3})`;
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                }
+            }
+
+            t += 0.0000000001; // slow movement
+            requestAnimationFrame(draw);
+            }
+
+            draw();
+            </script>
             <div class="hero-wrap">
             <div class="hero-left">
-            <div class="hero-tagline">
+            <h1 class="hero-name">Jackson<br>Philips<span class="cursor"></span></h1>
+            <div class="hero-links">
+                <div class="hero-row">
+                <a class="hero-btn" href="/blog">blog</a>
+                <a class="hero-btn" href="/projects">projects</a>
+                </div>
+                <a class="hero-btn wide" href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
                 <div class="contact-icons">
                     <a href="mailto:jphilips.dev@gmail.com">
                         <i class="fas fa-envelope"></i>
@@ -32,22 +106,43 @@
                     </a>
                 </div>
             </div>
-            <h1 class="hero-name">Jackson<br>Philips<span class="cursor"></span></h1>
-            <div class="hero-links">
-                <div class="hero-row">
-                <a class="hero-btn" href="/blog">blog</a>
-                <a class="hero-btn" href="/projects">projects</a>
-                </div>
-                <a class="hero-btn wide" href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
-            </div>
             </div>
         
             <div class="hero-right">
-                <img src="imgs/bunny.webp" width="300px">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="l">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="mid">
+                        <span class="icon"><img src="favicon.ico" width="16" height="16"></span>
+                        <span class="namelol"> — tboyj.github.io — .jmp</span>
+                        </div>
+                        <div class="r"></div>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="prompt"><code>$</code></span> <code>whoami</code></p>
+                        <p><code>jackson-philips</code></p>
+
+                        <p><span class="prompt"><code>$</code></span> <code>ls projects</code></p>
+                        <p><code>portfolio-site  ai-tool  cool-startup</code></p>
+
+                        <p><span class="prompt"><code>$</code></span> <code>echo "Building cool things"</code></p>
+                        <p><code>Building cool things</code></p>
+                        <p><span class="prompt"><code>$</code></span> <code><input class="typehere" id="cmdprompt" type="text" width="100%"></code></p>
+
+                    </div>
+                </div>
             </div>
             </div>
         </section>
-            
+            <section class="about" id="about">
+                <p>
+                    hello
+                </p>
+            </section>
             </main>
     <script>
         lucide.createIcons();
@@ -58,6 +153,23 @@
     </body>
 
       <style>
+        .mid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .typehere {
+            width: 95%;
+            height: 24px;
+            float: right;
+            background: none;
+            border: transparent;
+            color: white;
+            font-family: var(--font-datatype);
+            font-size: 14px;
+        }
+
         main {
         display: flex;
         flex-direction: column;
@@ -109,7 +221,28 @@
 
             background-color: var(--accent-1);
             padding: 2em;
+
         }
+
+.contact-icons i {
+    font-size: 1.55em;
+    color: var(--base-white);
+    transition: color 0.1s ease;
+    cursor: pointer;
+
+}
+.contact-icons i:hover {
+    color: var(--base-wh-compl);
+}
+
+.contact-icons {
+    display: flex;
+    gap: 12px;
+    text-align: center;
+    justify-content: center;
+    padding: 12px 0;
+
+}
 
   </style>
 

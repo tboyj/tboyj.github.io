@@ -14,7 +14,7 @@ class Footer extends HTMLElement {
             }
         </style>
         <footer>
-            <p>&copy; 2026 Jackson Philips. All rights reserved.</p>
+            <p>&copy; 2026 Jackson Philips</p>
         </footer>
         `
     }
