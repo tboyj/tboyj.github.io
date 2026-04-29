@@ -214,9 +214,6 @@
         document.title = `${meta.title} | tboyj`;
 
         // Update navbar breadcrumb
-        document.getElementById("navbar").setAttribute("path", `/blog/${id}`);
-        document.getElementById("navbar").setAttribute("labels", JSON.stringify({ [id]: meta.title }));
-
         const date = new Date(meta.date).toLocaleDateString("en-US", {
           year: "numeric", month: "long", day: "numeric"
         });

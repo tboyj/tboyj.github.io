@@ -21,6 +21,9 @@
     --base-wh-text: #272222;
     --base-wh-text-focus: #121113;
 
+    --dot-yellow: #D4B23A;
+    --dot-green: #3A8C57;
+
     --font-bricolage: 'Bricolage Grotesque', sans-serif;
     --font-dm: 'DM Sans', sans-serif;
     --font-datatype: 'Datatype', sans-serif;
@@ -247,7 +250,7 @@ a.hero-btn {
  .hero-wrap {
 position: relative;
   width: 100%;
-  min-height: 92vh;
+  min-height: 94vh;
   background-color: var(--base-black-2);
   overflow: hidden;
   display: flex;
@@ -458,8 +461,8 @@ section.hero::after {
   gap: 8px;
 }
 .red { background: var(--accent-1); }
-.yellow { background: #d6a336; }
-.green { background: #289c3a; }
+.yellow { background: var(--dot-yellow); }
+.green { background: var(--dot-green); }
 
 .terminal-body {
   padding: 16px;
@@ -492,4 +495,17 @@ section.hero::after {
   height: 100%;
   z-index: 1;
   inset: 0;
+}
+.spitview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 3em;
+  gap: 1.5em;
+}
+
+hr.gap {
+  border: transparent;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
 }
