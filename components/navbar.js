@@ -71,9 +71,7 @@ class SiteNavbar extends HTMLElement {
             min-width: 180px;
             display: flex;
             flex-direction: column;
-            background: rgba(10, 10, 10, 0.35);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            background: var(--base-black-2);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -81,6 +79,7 @@ class SiteNavbar extends HTMLElement {
             /* transform: translateY(-12px); */
             pointer-events: none;
             transition: 0.15s ease;
+            padding: 8px 0;
         }
 
         .directory-dropdown:hover .directory-menu {
@@ -133,13 +132,12 @@ class SiteNavbar extends HTMLElement {
           display: flex;
           flex-direction: column;
           min-width: 160px;
-          background: rgba(10, 10, 10, 0.35);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
+          background: var(--base-black-2);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 10px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           opacity: 0;
+          padding: 8px 0;
           // transform: translateY(-12px);
           pointer-events: none;
           transition: 0.15s ease;
