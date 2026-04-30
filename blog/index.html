@@ -11,9 +11,9 @@
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <title>blog | tboyj</title>
   <style>
-  main {
-    padding: 3em 1.5em 6em;
-  }
+    main {
+        padding: 3em 1.5em 3em 1.5em;
+    }
 
   .blog-header {
     margin-bottom: 48px;
@@ -40,30 +40,24 @@
     gap: 6px;
     margin-bottom: 32px;
     align-items: stretch;
+    height: 38px;
   }
 
   .search-input {
     flex: 1;
     font-family: var(--font-datatype, sans-serif);
     font-size: 1rem;
-    padding: 8px 14px;
+    padding: 4px 8px;
     border-radius: 6px;
     border: 1px solid rgba(255,255,255,0.1);
     background: var(--base-bl-compl-2);
     color: var(--base-white);
     outline: none;
     transition: border-color 0.15s;
+    min-width: 120px;
   }
 
-  .search-input::placeholder {
-    color: rgba(255,255,255,0.25);
-  }
-
-  .search-input:focus {
-    border-color: var(--accent-1);
-  }
-
-  /* Tag dropdown */
+    /* Tag dropdown */
   .tag-dropdown-wrap {
     position: relative;
   }
@@ -123,6 +117,24 @@
   .tag-dropdown-menu.open {
     display: flex;
   }
+
+
+  @media screen and (max-width: 330px) {
+    #tag-dropdown-btn, .tag-dropdown-btn {
+      display: none;
+    }
+    
+    
+  }
+
+  .search-input::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .search-input:focus {
+    border-color: var(--accent-1);
+  }
+
 
   .tag-option {
     font-family: var(--font-datatype, sans-serif);
@@ -271,6 +283,7 @@
     .tag-filter {
       justify-content: center;
     }
+
   }
   </style>
 </head>

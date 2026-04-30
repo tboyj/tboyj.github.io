@@ -67,13 +67,13 @@ class SiteNavbar extends HTMLElement {
         .directory-menu {
             position: absolute;
             top: 100%;
-            left: 0;
+            right: 0;
             min-width: 180px;
             display: flex;
             flex-direction: column;
             background: var(--base-black-2);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
+            border-top: 1px solid var(--base-black);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             opacity: 0;
             /* transform: translateY(-12px); */
@@ -128,13 +128,14 @@ class SiteNavbar extends HTMLElement {
         .contact-menu {
           position: absolute;
           top: 100%;
-          right: 0;
+          left: 0;
+          right: auto;
           display: flex;
           flex-direction: column;
           min-width: 160px;
           background: var(--base-black-2);
           border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 10px;
+          border-top: 1px solid var(--base-black);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           opacity: 0;
           padding: 8px 0;
@@ -248,28 +249,86 @@ class SiteNavbar extends HTMLElement {
 
         /* ── Responsive ── */
 
-        @media (max-width: 640px) {
-          .important-links,
-          .contact-dropdown {
-            display: none;
-          }
+        .important-links {
+          margin-left:auto;
+          margin-right:auto;
+          display: flex;
+          gap: 16px;
+          align-items: center;
+        }
+        .desktop-links {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+        }
 
-          .mobile-brand {
-            display: block;
-          }
+        @media (max-width: 768px) {
 
-          .menu-btn {
-            display: flex;
+          .directory-menu {
+            position: absolute;
+            top: 48px;
+            left:0;
+            
+            }
+          
+          .contact-menu {            
+            position: absolute;
+            top: 48px;
+            right:0;
+            left:auto;
           }
         }
+
+        @media (max-width: 480px) {
+          .desktop-links {
+            display: none;
+          }
+            .important-links {
+              gap:6px;
+            }
+          .dir-trigger, .cont-drp {
+            background: var(--accent-3);
+
+            width: 92px;
+            height: 36px;
+          }
+          .dir-trigger:focus, .cont-drp:focus {
+          color: var(--base-wh-compl);
+          }
+          .dir-trigger button, .cont-drp button {
+          }
+          .directory-menu {
+            position: absolute;
+            top: 48px;
+            left:0;
+            
+            }
+          
+          .contact-menu {            
+            position: absolute;
+            top: 48px;
+            right:0;  
+            left:-100%;
+          }
+
+
+        }
+
+        .dir-label {
+          font-family: var(--font-datatype);
+        }
+
+
       </style>
 
       <nav>
         <div class="important-links">
           <div class="directory-dropdown">
-            <button class="dir-trigger">tboyj</button>
+            <button class="dir-trigger cutoff-br">tboyj</button>
             <div class="directory-menu">
+            <span class="dir-label"> 17 38 ay</span>
               <a href="/">home</a>
+              <a href="/#about">about</a>
               <a href="/projects">projects</a>
               <a href="/assignments" class="archive">assignments</a>
               <a href="/awards">awards</a>
@@ -277,21 +336,24 @@ class SiteNavbar extends HTMLElement {
               <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
             </div>
           </div>
-          <a href="/#about">about</a>
-          <a href="/blog">blog</a>
-          <a href="/projects">projects</a>
+          <div class="desktop-links">
+            <a href="/blog">blog</a>
+            <a href="/projects">projects</a>
+          </div>
+          <div class="contact-dropdown">
+            <button class="cont-drp cutoff-tr">contact</button>
+            <div class="contact-menu">
+              <a href="mailto:jphilips.dev@gmail.com">email</a>
+              <a href="https://www.linkedin.com/in/jackson-philips/" target="_blank" rel="noreferrer">linkedin</a>
+              <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">github</a>
+            </div>
+          </div>
+          
         </div>
 
         <a class="mobile-brand" href="/">tboyj</a>
 
-        <div class="contact-dropdown">
-          <button class="cont-drp">contact</button>
-          <div class="contact-menu">
-            <a href="mailto:jphilips.dev@gmail.com">email</a>
-            <a href="https://www.linkedin.com/in/jackson-philips/" target="_blank" rel="noreferrer">linkedin</a>
-            <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">github</a>
-          </div>
-        </div>
+
 
         <button class="menu-btn"><i data-lucide="menu"></i></button>
       </nav>

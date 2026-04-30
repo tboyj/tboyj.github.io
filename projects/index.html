@@ -13,7 +13,6 @@
     </head>
     <body>
         <site-navbar></site-navbar>
-        <site-breadcrumb></site-breadcrumb>
         <main>
             <section>
             <div class="panel">
@@ -98,7 +97,8 @@
 
     <style>
         main {
-            padding: 3em 1.5em 6em;
+            padding: 3em 1.5em 3em 1.5em;
+
         }
         .project-header h1 {
             font-family: var(--font-bricolage, sans-serif);
@@ -120,22 +120,48 @@
             margin-bottom: 48px;
         }
 
+
         #project-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            align-items: stretch;
         }
+        @media screen and (max-width: 830px) {
+            .project-header {
+            text-align: center;
+            }
+            
+        }
+        @media screen and (max-width: 560px) {
+
+            #project-list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 425px) {
+            main {
+                padding: 0;
+                padding-top: 3em;
+                padding-bottom: 3em;
+            }
+            .project-header {
+                text-align: center;
+            }
+        }
+
 
         .project {
             background: linear-gradient(var(--base-bl-compl-2) 40%, var(--base-bl-compl-2) 160%);
             padding:1.25em;
-             height: 100%;
+            height: auto; 
+            min-height: 200px;
             display: flex;
             flex-direction: column;  
             border-radius:0px;  
             border: 1px solid var(--base-bl-compl-2); 
             transition: border 0.15s;
+
         }
         .project:hover {
             border: 1px solid rgba(130, 130, 130, 0.3);

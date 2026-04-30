@@ -513,3 +513,22 @@ hr.gap {
 .content {
   text-align: center;
 }
+
+/* Top left cutoff */
+.cutoff-tl {
+  clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+}
+/* Top right cutoff */
+.cutoff-bl {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%, 0% 80%);
+}
+/* Top-right cutoff */
+.cutoff-tr {
+  clip-path: polygon(0% 0%, 95% 0%, 100% 20%, 100% 100%, 0% 100%);
+}
+
+/* Bottom-right cutoff */
+.cutoff-br {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 95% 100%, 0% 100%);
+}
+

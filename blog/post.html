@@ -38,11 +38,12 @@
 
     .post-title {
       font-family: var(--font-bricolage, sans-serif);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(2.5rem, 7vw, 3.5rem);
       font-weight: 700;
       line-height: 1.1;
       margin: 0 0 12px;
       color: var(--base-white, white);
+      flex-wrap: wrap;
     }
 
     .post-description {
@@ -67,11 +68,35 @@
       color: rgba(255,255,255,0.75);
     }
 
+    @media screen and (max-width: 480px) {
+      .md-body, .post-title, .post-description, .post-meta, .post-meta span, .post-divider, .post-card-tags {
+        justify-content: center;
+      }
+      .post-meta, .post-title {
+        text-align: center;
+        
+      }
+      .post-card-tags {
+        width:100%;
+        display: block;
+      }
+      .panel {
+        margin:1em;
+      }
+    }
+
+  .post-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
     .md-body h1, .md-body h2, .md-body h3,
     .md-body h4, .md-body h5, .md-body h6 {
       font-family: var(--font-bricolage, sans-serif);
       color: var(--base-white, white);
-      margin: 2em 0 0.5em;
+      margin: 1em 0 0.5em;
       line-height: 1.2;
     }
 
