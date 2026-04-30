@@ -85,7 +85,7 @@ code {
 }
 
 .sidebar .links a {
-    font-size: 1.25em;
+    font-size: 1em;
     text-transform: lowercase;
     color: var(--base-white);
     text-decoration: none;
@@ -213,19 +213,19 @@ animation: showDots 0.3s ease forwards;
 
 
 .post-tag-btn {
-font-family: var(--font-datatype, sans-serif);
-font-size: 0.75rem;
-text-transform: lowercase;
-padding: 2px 8px;
-border-radius: 20px;
-border: 1px solid rgba(255,255,255,0.1);
-background: var(--base-bl-compl-2);
-color: rgba(255,255,255,0.4);
-cursor: default;
-transition: background 0.15s, color 0.15s, border-color 0.15s;
-/* prevent the card anchor from firing when clicking a tag */
-position: relative;
-z-index: 1;
+  font-family: var(--font-datatype, sans-serif);
+  font-size: 0.75rem;
+  text-transform: lowercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--base-bl-compl-2);
+  color: rgba(255,255,255,0.4);
+  cursor: default;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  /* prevent the card anchor from firing when clicking a tag */
+  position: relative;
+  z-index: 1;
 }
 
 .post-tag-btn.active {
@@ -237,6 +237,7 @@ background: var(--accent-3);
 /* new stuff */
 .panel {
     margin:2em;
+    margin-top: 4em;
 }
 .panel-s {
     margin: 1em;
@@ -330,7 +331,6 @@ position: relative;
   font-family: 'DM Sans', sans-serif;
   font-size: 1em;
   font-weight: 400;
-  letter-spacing: 0.04em;
   color: var(--base-white);
   background: var(--accent-1);
   border-radius:0px;
@@ -508,4 +508,8 @@ hr.gap {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 
+}
+
+.content {
+  text-align: center;
 }
