@@ -19,3 +19,5 @@ A lot of behind the scenes content is still in the game, per usual, as it was ei
 The scripts and assets are still in the game. You can look at the source code and probably find it really easily, to be honest.
 And there’s tons of little things like that that can jeopardize the vision, if I’m going to be 100% honest. Mistakes happen in the industry, mistakes happen everywhere. Features get added and then scrapped. It happens. But layer this on top of an ambitious scope, and it becomes a nightmare to deal with.
 The last thing I will say on this is that in order to craft and fully create something, you will have to look ahead. Please don’t ever try to wing it. If there’s one thing not talked about enough, it’s that in order to make a game well you must plan it out. I did so partially and even then you could see the consequences I faced from it. My two pieces of personal advice are to always anticipate having to fill in tasks and to try to set your personal goalpost a month behind so that you don’t get bit by the time crunch as much.
+> NOTE:  
+> This is still a work in progress. Anything in this article is subject to be further added, modified, or removed.

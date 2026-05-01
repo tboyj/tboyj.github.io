@@ -47,6 +47,7 @@ class SiteNavbar extends HTMLElement {
           position: relative;
           display: inline-block;
           cursor: pointer;
+
         }
 
 
@@ -71,7 +72,7 @@ class SiteNavbar extends HTMLElement {
             min-width: 180px;
             display: flex;
             flex-direction: column;
-            background: var(--base-black-2);
+            background: var(--base-black);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-top: 1px solid var(--base-black);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -97,8 +98,14 @@ class SiteNavbar extends HTMLElement {
           transition: 0.15s ease;
         }
 
+        .directory-menu span, .contact-menu span {
+          padding: 4px 12px;
+          font-size: 11px;
+          color: rgba(255, 255, 255, 0.25);
+        }
+
         .directory-menu a:hover {
-          background: rgba(255, 255, 255, 0.08);
+          background: var(--base-black);
           color: var(--accent-1);
         }
 
@@ -133,7 +140,7 @@ class SiteNavbar extends HTMLElement {
           display: flex;
           flex-direction: column;
           min-width: 160px;
-          background: var(--base-black-2);
+          background: var(--base-black);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-top: 1px solid var(--base-black);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -324,14 +331,15 @@ class SiteNavbar extends HTMLElement {
           <div class="directory-dropdown">
             <button class="dir-trigger cutoff-br">tboyj</button>
             <div class="directory-menu">
-            <span class="dir-label"> 17 38 ay</span>
+            <span class="dir-label">things</span>
               <a href="/">home</a>
               <a href="/#about">about</a>
-              <a href="/projects">projects</a>
-              <a href="/assignments" class="archive">assignments</a>
               <a href="/awards">awards</a>
+            <span class="dir-label">other things</span>
+              <a href="/projects">projects</a>
               <a href="/blog">blog</a>
               <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
+              <a href="/assignments" class="archive">assignments</a>
             </div>
           </div>
           <div class="desktop-links">
@@ -341,6 +349,7 @@ class SiteNavbar extends HTMLElement {
           <div class="contact-dropdown">
             <button class="cont-drp cutoff-tr">contact</button>
             <div class="contact-menu">
+            <span class="dir-label">contact me!</span>
               <a href="mailto:jphilips.dev@gmail.com">email</a>
               <a href="https://www.linkedin.com/in/jackson-philips/" target="_blank" rel="noreferrer">linkedin</a>
               <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">github</a>
