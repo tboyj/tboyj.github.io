@@ -287,10 +287,8 @@ class SiteNavbar extends HTMLElement {
               gap:6px;
             }
           .dir-trigger, .cont-drp {
-            background: var(--accent-3);
 
             width: 92px;
-            height: 36px;
           }
           .dir-trigger:focus, .cont-drp:focus {
           color: var(--base-wh-compl);
