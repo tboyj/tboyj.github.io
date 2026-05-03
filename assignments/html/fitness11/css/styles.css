@@ -178,7 +178,7 @@ article:nth-of-type(2) {
 }
 
 .round {
-  border-radius:0px;
+  border-radius: 8px;
 }
 
 #contact {

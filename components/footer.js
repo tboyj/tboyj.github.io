@@ -8,6 +8,7 @@ class Footer extends HTMLElement {
                 justify-content: center;
                 align-items: center;
                 padding: 5px 0;
+                height:48px;
                 background: var(--base-black);
                 color: white;
                 font-family: var(--font-datatype);

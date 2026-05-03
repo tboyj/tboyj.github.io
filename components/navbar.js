@@ -329,15 +329,15 @@ class SiteNavbar extends HTMLElement {
       <nav>
         <div class="important-links">
           <div class="directory-dropdown">
-            <button class="dir-trigger cutoff-br">tboyj</button>
+            <button class="dir-trigger cutoff-br"><a href="/">tboyj</a></button>
             <div class="directory-menu">
-            <span class="dir-label">things</span>
-              <a href="/">home</a>
+            <span class="dir-label">main links</span>
               <a href="/#about">about</a>
-              <a href="/awards">awards</a>
-            <span class="dir-label">other things</span>
-              <a href="/projects">projects</a>
+              <a href="/#tech-stack">tech stack</a>
               <a href="/blog">blog</a>
+              <a href="/projects">projects</a>
+            <span class="dir-label">ways to reach out</span>
+              <a href="/#contact">contact</a>
               <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
               <a href="/assignments" class="archive">assignments</a>
             </div>
@@ -347,7 +347,7 @@ class SiteNavbar extends HTMLElement {
             <a href="/projects">projects</a>
           </div>
           <div class="contact-dropdown">
-            <button class="cont-drp cutoff-tr">contact</button>
+            <button class="cont-drp cutoff-tr"><a href="/#contact">contact</a></button>
             <div class="contact-menu">
             <span class="dir-label">contact me!</span>
               <a href="mailto:jphilips.dev@gmail.com">email</a>
@@ -374,7 +374,6 @@ class SiteNavbar extends HTMLElement {
           <a href="/projects">projects</a>
           <a class="archive" href="/assignments">assignments</a>
           <hr>
-          <a href="/awards">awards</a>
           <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
           <hr>
           <a href="/blog">blog</a>

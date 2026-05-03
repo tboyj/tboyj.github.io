@@ -581,7 +581,7 @@ article.tech-stack {
 /* mobile large below cancelling tech stack. look into this later if wanted. */
 @media screen and (max-width: 425px ) { 
   section.tech-section {
-    display: none;
+    /* display: none; */
   }
 }
 
@@ -638,3 +638,63 @@ article.contact {
 #css3 { background: linear-gradient(135deg, #264de4, #264de4); }
 #python { background: linear-gradient(135deg, #f7c948, #f7c948);  }
 #psql { background: linear-gradient(135deg, #336791, #336791); }
+
+.card {
+  display: flex;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 600px;
+  border: 1px solid #333;
+  min-height: 128px;
+}
+
+.card-image {
+  flex: 1; /* Takes up proportional space */
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.card-image img {
+  width: 128px;
+  height: 64px;
+  object-fit: cover; /* Ensures the image doesn't stretch weirdly */
+  display: block;
+}
+
+.card-content {
+  flex: 2; /* Gives more room to the text */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers text vertically */
+}
+
+.card-title {
+  margin: 0 0 10px 0;
+  color: white;
+}
+
+.card-description {
+  color: #ccc;
+  margin: 0;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+}

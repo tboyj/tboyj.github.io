@@ -19,10 +19,13 @@
                 height: 4em;
             }
 
-            .marqueemoon {
-                background-color: var(--base-black);
+            .tech-types {
                 width: 100%;
-                height: 20vh;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
             }
 
 
@@ -215,6 +218,11 @@
             }
 
             draw();
+
+            function openModal(src) {
+                document.getElementById("img01").src = src;
+                document.getElementById("imageModal").style.display = "flex";
+            }
             </script>
             <div class="hero-wrap">
             <div class="hero-left">
@@ -269,9 +277,9 @@
             </div>
             </div>
         </section>
-        <section>
+        <section id="about">
             <div class="panel">
-                <div class="about-header" id="about">
+                <div class="about-header">
                     <h1>about me</h1>
                     <p>i'd love to work for you :O</p>
                 </div>
@@ -287,14 +295,14 @@
                     </div>
             </div>
         </section>
-        <section class="tech-section">
+        <section class="tech-section" id="tech-stack">
             <div class="panel">
-                <div class="tech-stack-header" id="tech-stack">
+                <div class="tech-stack-header">
                     <h1>tech stack</h1>
                     <p>the mandatory stack that keeps me busy</p>
                 </div>
                     <div class="content">
-                        <article class="tech-stack">
+                        <div class="tech-types">
                             <div class="type" id="java">
                                 <i class="fa-brands fa-java"></i>
                                 <span>Java</span>
@@ -339,66 +347,75 @@
                                 <i class="devicon-postgresql-plain"></i>
                                 <span>Postgres</span>
                             </div>
+                        </div>
                         </article>
                     </div>
                 
             </div>
         </section>
         <!-- add awards section here -->
-         <section class="awards-section">
+         <!-- <section class="awards-section" id="awards">
             <div class="panel">
-                <div class="awards-header" id="awards">
+                <div class="awards-header">
                     <h1>awards</h1>
                     <p>the things that make me proud</p>
                 </div>
                 <div class="content">
-<!-- WORK ON THIS LATER !!! TODO !!! WORK ON THIS LATER !!! -->
+< WORK ON THIS LATER !!! TODO !!! WORK ON THIS LATER !!!
+                    <article>
+                        <div class="awards">
+                            <div class="card">
+                            <div class="card-image">
+                                <img src="imgs/awards/r18-wdt-1-2026.webp" alt="Project Thumbnail" onclick="openModal(this.src)">
+                            </div>
 
-                    <!-- <div class="awards">
-                        <div class="award" id="ksu">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <span>ksu</span>
+                            <div class="card-content">
+                                <h2 class="card-title">2026 Regional 18 BPA Web Design Team - 1st Place</h2>
+                            </div>
+                            </div>
+
+                            <div id="imageModal" class="modal" onclick="this.style.display='none'">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            </div>
+
                         </div>
-                        <div class="award" id="mp">
-                            <i class="fa-solid fa-award"></i>
-                            <span>mp</span>
-                        </div>
-                    </div> -->
+                    </article>
                 </div>
             </div>
-        </section>
-        <section class="contact">
+        </section> -->
+        <section class="contact" id="contact">
             <div class="panel">
-                <div class="contact-header" id="contact">
+                <div class="contact-header">
                     <h1>contact</h1>
                     <p>let's chat</p>
                 </div>
                     <div class="content">
                         <article class="contact">
+                            <a href="mailto:jphilips.dev@gmail.com">
                             <div class="btn-contact cutoff-tl" id="email">
-                                <a href="mailto:jphilips.dev@gmail.com">
                                 <i class="fas fa-envelope"></i>
                                 <span>email</span>
-                                </a>
                             </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
                             <div class="btn-contact" id="linkedin">
-                                <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
                                 <i class="fa-brands fa-linkedin"></i>
                                 <span>linkedin</span>
-                                </a>
                             </div>
+                            </a>
+                            <a href="https://www.github.com/tboyj" target="_blank" rel="noreferrer">
                             <div class="btn-contact" id="github">
-                                <a href="https://www.github.com/tboyj" target="_blank" rel="noreferrer">
                                 <i class="fa-brands fa-github"></i>
                                 <span>github</span>
-                                </a>
                             </div>
-                                <div class="btn-contact cutoff-br" id="bluesky">
-                                <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
+                            </a>
+                            <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
+                            <div class="btn-contact cutoff-br" id="bluesky">
                                 <i class="fa-brands fa-bluesky"></i>
                                 <span>bluesky</span>
-                                </a>
                             </div>
+                            </a>
                         </article>
                     </div>
             </div>
