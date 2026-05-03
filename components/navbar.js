@@ -106,7 +106,7 @@ class SiteNavbar extends HTMLElement {
 
         .directory-menu a:hover {
           background: var(--base-black);
-          color: var(--accent-1);
+          color: var(--base-wh-compl);
         }
 
         /* ── Contact dropdown ── */
@@ -166,8 +166,8 @@ class SiteNavbar extends HTMLElement {
         }
 
         .contact-menu a:hover {
-          background: rgba(255, 255, 255, 0.08);
-          color: var(--accent-1);
+          background: var(--base-black);
+          color: var(--base-wh-compl);
         }
 
         /* ── Sidebar ── */
@@ -339,6 +339,7 @@ class SiteNavbar extends HTMLElement {
             <span class="dir-label">ways to reach out</span>
               <a href="/#contact">contact</a>
               <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
+            <span class="dir-label">other</span>
               <a href="/assignments" class="archive">assignments</a>
             </div>
           </div>

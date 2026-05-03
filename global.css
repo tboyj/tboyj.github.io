@@ -29,6 +29,17 @@
     --font-datatype: 'Datatype', sans-serif;
 }
 
+::selection {
+  background-color: var(--accent-1); /* The highlight background (e.g., a gold/yellow) */
+  color: var(--base-black);            /* The text color when highlighted */
+}
+
+/* For Firefox support */
+::-moz-selection {
+  background-color: var(--accent-1); /* The highlight background (e.g., a gold/yellow) */
+  color: var(--base-black);   
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -319,7 +330,7 @@ position: relative;
   line-height: 0.95;
   letter-spacing: -0.02em;
   text-transform: lowercase;
-  margin-bottom: 0.4em;
+  margin-bottom: 16px;
   text-align: center;
 }
 
