@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         <script src="https://unpkg.com/lucide@latest"></script>
         <script src="components/footer.js"></script>
         <script src="components/navbar.js"></script>
@@ -11,6 +12,143 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         
         <title>tboyj</title>
+
+        <style>
+            .tech-stack {
+                min-height: 4em;
+                height: 4em;
+            }
+
+            .marqueemoon {
+                background-color: var(--base-black);
+                width: 100%;
+                height: 20vh;
+            }
+
+
+            .tech-header h2 {
+                text-align: center;
+                padding:1em;
+                font-family: var(--font-bricolage, sans-serif);
+                font-size: clamp(1.5rem, 7vw, 2.5rem);
+            }
+
+            .ensmallify {
+                margin-left: 3em;
+                margin-right: 3em;
+            }
+
+            .tech-stack .slow-shift {
+                background-color: var(--base-black);
+                width: 100%;
+                height: 20vh;
+            }
+
+            .mid {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .typehere {
+                width: 95%;
+                height: 24px;
+                float: right;
+                background: none;
+                border: transparent;
+                color: white;
+                font-family: var(--font-datatype);
+                font-size: 14px;
+            }
+
+            main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            flex-grow: 1;
+            }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            .hero-tagline .contact-icons {
+                display: flex;
+                gap: 16px;
+                text-align: center;
+                justify-content: center;
+                padding: 0 0;
+            }
+            .hero-tagline .contact-icons i {
+                font-size: 2.5em;
+                color: var(--base-white);
+                transition: color 0.1s ease;
+                cursor: pointer;
+
+            }
+            .hero-tagline .contact-icons i:hover {
+                color: var(--accent-1);
+            }
+
+            @media screen and (max-width: 680px) {
+                .panel {
+                    padding: 0em;
+                }
+            }
+            
+            .about-header, .tech-stack-header, .contact-header, .awards-header {
+                margin-bottom: 48px;
+                text-align: center;
+            }
+
+            .about-header h1, .tech-stack-header h1, .contact-header h1, .awards-header h1 {
+                font-family: var(--font-bricolage, sans-serif);
+                font-size: clamp(1.5rem, 7vw, 2.5rem);
+                font-weight: 700;
+                color: var(--base-white, white);
+            }
+
+            .about-header p, .tech-stack-header p, .contact-header p, .awards-header p {
+                font-family: var(--font-dm, sans-serif);
+                font-size: 1rem;
+                color: rgba(255,255,255,0.4);
+                margin: 0;
+            }
+            .about-halfsized, .tech-stack-halfsized, .contact-halfsized, .awards-halfsized {
+                margin-left: auto;
+                margin-right: auto;
+
+                background-color: var(--accent-1);
+                padding: 2em;
+
+            }
+
+            .content {
+                display: flex;
+            }
+
+            .contact-icons i {
+                font-size: 1.55em;
+                color: var(--base-white);
+                transition: color 0.1s ease;
+                cursor: pointer;
+
+            }
+            .contact-icons i:hover {
+                color: var(--base-wh-compl);
+            }
+
+            .contact-icons {
+                display: flex;
+                gap: 12px;
+                text-align: center;
+                justify-content: center;
+                padding: 12px 0;
+
+            }
+
+            article {
+                width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
     </head>
     <body>
         <site-navbar></site-navbar>
@@ -120,7 +258,7 @@
                         <p><code>"CompSci"</code></p>
 
                         <p><span class="prompt"><code>$</code></span> <code>attending?</code></p>
-                        <p><code>"[college]"</code></p>
+                        <p><code>"ksu @ main"</code></p>
 
                         <p><span class="prompt"><code>$</code></span> <code>open to work?</code></p>
                         <p><code>true</code></p>
@@ -131,145 +269,151 @@
             </div>
             </div>
         </section>
-        <hr class="gap">
-            <section class="about" id="about">
-                <div class="ensmallify">
-                    <div class="about-header">
-                    <h1>Hey</h1>
-                    </div>
+        <section>
+            <div class="panel">
+                <div class="about-header" id="about">
+                    <h1>about me</h1>
+                    <p>i'd love to work for you :O</p>
+                </div>
                     <div class="content">
-                        thanks for stopping by! i'm jackson and i have a deep admiration for creating. currently learning backend
+                        <article>
+                            <p>
+                                Hey! I'm Jackson, and I'm an incoming freshman at Kent State University who's currently pursuing a Bachelor's in Computer Science. 
+                                I have a passion for building enterprise-grade backend systems, web apps, and everything in between. I also have a love for creating games and music within my free time.
+                                Currently, I'm deepening my foundational programming skills even more with C++, however some things you may already know me for are ChronoQuest 
+                                or my involvement with the foundation of MentalPanda. Don't be afraid to ask me anything, my emails are open and I'm always happy to chat.
+                            </p>
+                        </article>
                     </div>
+            </div>
+        </section>
+        <section class="tech-section">
+            <div class="panel">
+                <div class="tech-stack-header" id="tech-stack">
+                    <h1>tech stack</h1>
+                    <p>the mandatory stack that keeps me busy</p>
                 </div>
-            </section>
-            <hr class="gap">
-            <section class="tech-stack" id="stack">
-                <div class="slow-shift">
-                    <div class="tech-header">
-                        <h2>tech stack</h2>
+                    <div class="content">
+                        <article class="tech-stack">
+                            <div class="type" id="java">
+                                <i class="fa-brands fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="type" id="maven">
+                                <i class="devicon-maven-plain"></i>
+                                <span>Maven</span>
+                            </div>
+                            <div class="type" id="springboot">
+                                <i class="devicon-spring-plain"></i>
+                                <span>Spring</span>
+                            </div>
+                            <div class="type" id="cpp">
+                                <i class="devicon-cplusplus-plain"></i>
+                                <span>C++</span>
+                            </div>
+                            <div class="type" id="csh">
+                                <i class="devicon-csharp-plain"></i>
+                                <span>C#</span>
+                            </div>
+                            <div class="type" id="unity">
+                                <i class="fa-brands fa-unity"></i>
+                                <span>Unity</span>
+                            </div>
+                            <div class="type" id="git">
+                                <i class="fa-brands fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="type" id="js">
+                                <i class="fa-brands fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="type" id="html5">
+                                <i class="fa-brands fa-html5"></i>
+                                <span>HTML</span>
+                            </div>
+                            <div class="type" id="css3">
+                                <i class="fa-brands fa-css3"></i>
+                                <span>CSS</span>
+                            </div>
+                            <div class="type" id="psql">
+                                <i class="devicon-postgresql-plain"></i>
+                                <span>Postgres</span>
+                            </div>
+                        </article>
                     </div>
+                
+            </div>
+        </section>
+        <!-- add awards section here -->
+         <section class="awards-section">
+            <div class="panel">
+                <div class="awards-header" id="awards">
+                    <h1>awards</h1>
+                    <p>the things that make me proud</p>
+                </div>
+                <div class="content">
+<!-- WORK ON THIS LATER !!! TODO !!! WORK ON THIS LATER !!! -->
 
+                    <!-- <div class="awards">
+                        <div class="award" id="ksu">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>ksu</span>
+                        </div>
+                        <div class="award" id="mp">
+                            <i class="fa-solid fa-award"></i>
+                            <span>mp</span>
+                        </div>
+                    </div> -->
                 </div>
-            </section>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="panel">
+                <div class="contact-header" id="contact">
+                    <h1>contact</h1>
+                    <p>let's chat</p>
+                </div>
+                    <div class="content">
+                        <article class="contact">
+                            <div class="btn-contact cutoff-tl" id="email">
+                                <a href="mailto:jphilips.dev@gmail.com">
+                                <i class="fas fa-envelope"></i>
+                                <span>email</span>
+                                </a>
+                            </div>
+                            <div class="btn-contact" id="linkedin">
+                                <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <span>linkedin</span>
+                                </a>
+                            </div>
+                            <div class="btn-contact" id="github">
+                                <a href="https://www.github.com/tboyj" target="_blank" rel="noreferrer">
+                                <i class="fa-brands fa-github"></i>
+                                <span>github</span>
+                                </a>
+                            </div>
+                                <div class="btn-contact cutoff-br" id="bluesky">
+                                <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
+                                <i class="fa-brands fa-bluesky"></i>
+                                <span>bluesky</span>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+        <hr class="gap">
             </main>
+
+            
+            <footer><site-footer></site-footer></footer>
+            
     <script>
         lucide.createIcons();
     </script>
-    <footer>
-        <site-footer></site-footer>
-    </footer>
     </body>
 
-      <style>
-        
-        .tech-header h2 {
-            text-align: center;
-            padding:1em;
-            font-family: var(--font-bricolage, sans-serif);
-            font-size: clamp(1.5rem, 7vw, 2.5rem);
-        }
 
-        .ensmallify {
-            margin-left: 3em;
-            margin-right: 3em;
-        }
-
-        .tech-stack .slow-shift {
-            background-color: var(--base-black);
-            width: 100%;
-            height: 20vh;
-        }
-
-        .mid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .typehere {
-            width: 95%;
-            height: 24px;
-            float: right;
-            background: none;
-            border: transparent;
-            color: white;
-            font-family: var(--font-datatype);
-            font-size: 14px;
-        }
-
-        main {
-        display: flex;
-        flex-direction: column;
-        }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        .hero-tagline .contact-icons {
-            display: flex;
-            gap: 16px;
-            text-align: center;
-            justify-content: center;
-            padding: 0 0;
-        }
-        .hero-tagline .contact-icons i {
-            font-size: 2.5em;
-            color: var(--base-white);
-            transition: color 0.1s ease;
-            cursor: pointer;
-
-        }
-        .hero-tagline .contact-icons i:hover {
-            color: var(--accent-1);
-        }
-
-                .panel {
-            padding: 0em 1.5em 6em;
-        }
-        .about-header {
-            margin-bottom: 48px;
-            text-align: center;
-        }
-
-        .about-header h1 {
-            font-family: var(--font-bricolage, sans-serif);
-            font-size: clamp(1.5rem, 7vw, 2.5rem);
-            font-weight: 700;
-            color: var(--base-white, white);
-        }
-
-        .about-header p {
-            font-family: var(--font-dm, sans-serif);
-            font-size: 1rem;
-            color: rgba(255,255,255,0.4);
-            margin: 0;
-        }
-        .about-halfsized {
-            margin-left: auto;
-            margin-right: auto;
-
-            background-color: var(--accent-1);
-            padding: 2em;
-
-        }
-
-.contact-icons i {
-    font-size: 1.55em;
-    color: var(--base-white);
-    transition: color 0.1s ease;
-    cursor: pointer;
-
-}
-.contact-icons i:hover {
-    color: var(--base-wh-compl);
-}
-
-.contact-icons {
-    display: flex;
-    gap: 12px;
-    text-align: center;
-    justify-content: center;
-    padding: 12px 0;
-
-}
-
-  </style>
 
 </html>

@@ -39,20 +39,31 @@ html {
 
 footer
 {
-    margin-top: auto;
     z-index: 100;
 }
 body {
     background: var(--base-black-2);
     color: var(--base-white);
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
 }
+
+html {
+  height: 100%; /* Establish root height */
+  margin: 0;    /* Remove default browser margins */
+}
+
+body {
+  margin: 0;    /* Remove default browser margins */
+}
+
 main {
-    flex: 1;
-    flex-grow: 1;
-    
+  min-height: 100vh;
+  /* Optional: min-height: 100vh; allows it to grow if content exceeds screen height */
+}
+
+site-footer {
+    flex-shrink: 0; /* Prevents the footer from squishing */
 }
 
 code {
@@ -237,7 +248,6 @@ background: var(--accent-3);
 /* new stuff */
 .panel {
     margin:2em;
-    margin-top: 4em;
 }
 .panel-s {
     margin: 1em;
@@ -356,6 +366,15 @@ position: relative;
 }
 section.hero {
   position: relative;
+  width: 100%;
+  min-height: 94vh;
+  background-color: var(--base-black-2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--base-bl-text-focus);
 }
 section.hero::after {
   content: "";
@@ -510,10 +529,6 @@ hr.gap {
 
 }
 
-.content {
-  text-align: center;
-}
-
 /* Top left cutoff */
 .cutoff-tl {
   clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
@@ -532,3 +547,94 @@ hr.gap {
   clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 95% 100%, 0% 100%);
 }
 
+/* brand gargbae */
+
+.tech-stack {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.type {
+  border-radius: 50px;
+  height: 32px;
+  padding: 0 16px;
+  background: var(--accent-1);
+  color: var(--base-white);
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.type span {
+  margin-left: 8px;
+}
+article.tech-stack {
+  margin-bottom: 7em;
+}
+/* i want to do a rewrite of this done with a table or something more cohesive. maybe later since it's technically functional but yk. */
+/* mobile large below cancelling tech stack. look into this later if wanted. */
+@media screen and (max-width: 425px ) { 
+  section.tech-section {
+    display: none;
+  }
+}
+
+.btn-contact {
+    font-family: 'DM Sans', sans-serif;
+    font-size: em;
+    font-weight: 400;
+    color: var(--base-white);
+    background: var(--accent-1);
+    border-radius: 0px;
+    padding: 16px 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background 0.15s, color 0.15s;
+    width: 15em;
+    vertical-align: middle;
+}
+.btn-contact a {
+    text-align: center !important;
+    justify-content: center !important;
+    color: var(--base-white);
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.btn-contact:hover {
+    background: var(--accent-3);
+    color: var(--base-wh-compl);
+}
+.btn-contact:hover a {
+    color: var(--base-wh-compl);
+}
+article.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    text-align: center;
+}
+
+#java { background: linear-gradient(135deg, #f89820, #f89820); }
+#maven { background: linear-gradient(135deg, #c71a34, #c71a34); }
+#springboot { background: linear-gradient(135deg, #6db33f, #6db33f); }
+#cpp { background: linear-gradient(135deg, #659ad2, #659ad2); }
+#csh { background: linear-gradient(135deg, #9b4f96, #9b4f96); }
+#unity { background: linear-gradient(135deg, #4a4a4a, #4a4a4a); }
+#git { background: linear-gradient(135deg, #f05033, #f05033); }
+#js { background: linear-gradient(135deg, #f7df1e, #f7df1e); color: var(--base-black-2); }
+#html5 { background: linear-gradient(135deg, #e34f26, #e34f26); }
+#css3 { background: linear-gradient(135deg, #264de4, #264de4); }
+#python { background: linear-gradient(135deg, #f7c948, #f7c948);  }
+#psql { background: linear-gradient(135deg, #336791, #336791); }

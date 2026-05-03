@@ -2,7 +2,7 @@ class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <style>
-            footer 
+            .foot
             {
                 display: flex;
                 justify-content: center;
@@ -13,9 +13,9 @@ class Footer extends HTMLElement {
                 font-family: var(--font-datatype);
             }
         </style>
-        <footer>
+        <div class="foot">
             <p>&copy; 2026 Jackson Philips</p>
-        </footer>
+        </div>
         `
     }
 }
