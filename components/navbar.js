@@ -320,7 +320,10 @@ class SiteNavbar extends HTMLElement {
         }
 
         .dir-label {
-          font-family: var(--font-datatype);
+          font-family: var(--font-dm);
+          font-size: 0.75rem;
+          letter-spacing: 0px;
+          cursor: default;
         }
 
 
