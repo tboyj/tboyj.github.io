@@ -4,9 +4,12 @@ class SiteNavbar extends HTMLElement {
       <style>
         nav {
           position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
+          top: 12px;
+
+          left: 50%;
+          transform: translateX(-50%);
+
+          width: fit-content;
 
           height: 48px;
 
@@ -335,8 +338,6 @@ class SiteNavbar extends HTMLElement {
             <button class="dir-trigger cutoff-br"><a href="/">tboyj</a></button>
             <div class="directory-menu">
             <span class="dir-label">main links</span>
-              <a href="/#about">about</a>
-              <a href="/#tech-stack">tech stack</a>
               <a href="/blog">blog</a>
               <a href="/projects">projects</a>
             <span class="dir-label">ways to reach out</span>

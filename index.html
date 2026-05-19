@@ -151,7 +151,6 @@
             }
 
             article {
-                width: 75%;
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -160,6 +159,120 @@
             p.introduction {
                 line-height: 1.5em;
             }
+
+            .borderlol {
+                border: 1px solid var(--base-white);
+                padding: 2em;
+                width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+            .contact-info-footer, .directory-info-footer {
+                background-color: var(--base-bl-compl-2);
+                padding: 2em;
+            }
+
+            .titlestuff {
+                padding-left: 2em;
+                padding-right: 2em;
+                padding-top: 2em;
+                background-color: var(--base-bl-compl-2);
+                margin: 2em;
+                margin-bottom: 0em;
+
+            }
+            .big-gen-foot {
+                display: flex;
+                flex-direction: column;
+                background-color: var(--base-black);
+            }
+
+            .cif-content, .dif-content {
+                display: flex;
+                flex-direction: column;
+            }
+            .gen-foot {
+                display: flex;
+                flex-direction: row;
+                background-color: var(--base-black);
+            }
+            .leftfooter, .rightfooter {
+                flex: 1;
+                width: 50%;
+                margin-bottom: 2em;
+            }
+
+            .leftfooter {
+                margin-left:2em;
+            }
+            .rightfooter {
+                margin-right: 2em;
+            }
+
+            .cif-title, .dif-title {
+                font-family: var(--font-datatype);
+                font-size: 1.5em;
+                font-weight: 700;
+                color: var(--base-white);
+                margin: 0;
+                margin-bottom: 0.5em;
+            }
+
+            .cif-content a, .dif-content a {
+                width: fit-content;
+            }
+
+            .name-block {
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                margin-bottom: 20px;
+            }
+            
+            .tile-row {
+                display: flex;
+                gap: 5px;
+            }
+            
+            .tile-row.offset {
+                margin-left: 55px;
+            }
+            
+            .tile {
+                width: 50px;
+                height: 50px;
+                background: var(--base-white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                font-weight: 900;
+                font-family: var(--font-bricolage);
+                color: var(--base-black);
+                position: relative;
+                overflow: hidden;
+                user-select: none;
+            }
+            
+            .tile::after {
+                content: '';
+                position: absolute;
+                left: 0; right: 0;
+                top: 50%;
+                height: 1px;
+                pointer-events: none;
+            }
+            
+            .tile.flip {
+                animation: tileFlip .5s ease-out forwards;
+            }
+            
+            @keyframes tileFlip {
+                0%  { transform: rotateX(0) scaleY(1); opacity: 1; }
+                100% { transform: rotateX(0deg) scaleY(1); opacity: 1; }
+            }
+
         </style>
     </head>
     <body>
@@ -170,14 +283,17 @@
             
             <div class="hero-wrap">
             <div class="hero-left">
-            <h1 class="hero-name">Jackson<br>Philips<span class="cursor"></span></h1>
+            <div class="name-block">
+            <div class="tile-row" id="row1"></div>
+            <div class="tile-row offset" id="row2"></div>
+            </div>
             <p class="hero-tagline">pursuing a Bachelor of Science in CompSci @ KSU</p>
             <div class="hero-links">
-                <div class="hero-row">
-                <a class="hero-btn cutoff-tl " href="/blog">blog</a>
+                <!-- <div class="hero-row"> -->
+                <!-- <a class="hero-btn cutoff-tl " href="/blog">blog</a>
                 <a class="hero-btn cutoff-bl" href="/projects">projects</a>
                 </div>
-                <a class="hero-btn wide cutoff" href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
+                <a class="hero-btn wide cutoff" href="/documents" target="_blank" rel="noreferrer">resume + cv</a> -->
                 <div class="contact-icons">
                     <a href="mailto:jphilips.dev@gmail.com">
                         <i class="fas fa-envelope"></i>
@@ -191,9 +307,13 @@
                 </div>
             </div>
             </div>
+            <div class="hero-right">
+            <img class="hero-img" src="images/profile-pic.png" alt="Jackson Philips">
+            </div>
+            </div>
         </section>
-        <section id="about">
-            <div class="panel">
+        <!-- <section id="about">
+            <div class="panel borderlol">
                 <div class="about-header">
                     <h1>about me</h1>
                     <p>i'd love to work for you :O</p>
@@ -211,7 +331,7 @@
             </div>
         </section>
         <section class="tech-section" id="tech-stack">
-            <div class="panel">
+            <div class="panel borderlol">
                 <div class="tech-stack-header">
                     <h1>tech stack</h1>
                     <p>the mandatory stack that keeps me busy</p>
@@ -267,7 +387,7 @@
                     </div>
                 
             </div>
-        </section>
+        </section> -->
         <!-- add awards section here -->
          <!-- <section class="awards-section" id="awards">
             <div class="panel">
@@ -299,48 +419,92 @@
                 </div>
             </div>
         </section> -->
-        <section class="contact" id="contact">
-            <div class="panel">
-                <div class="contact-header">
-                    <h1>contact</h1>
-                    <p>let's chat (or discuss work)</p>
-                </div>
-                    <div class="content">
-                        <article class="contact">
-                            <a href="mailto:jphilips.dev@gmail.com">
-                            <div class="btn-contact cutoff-tl" id="email">
-                                <i class="fas fa-envelope"></i>
-                                <span>email</span>
-                            </div>
-                            </a>
-                            <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
-                            <div class="btn-contact" id="linkedin">
-                                <i class="fa-brands fa-linkedin"></i>
-                                <span>linkedin</span>
-                            </div>
-                            </a>
-                            <a href="https://www.github.com/tboyj" target="_blank" rel="noreferrer">
-                            <div class="btn-contact cutoff-br" id="github">
-                                <i class="fa-brands fa-github"></i>
-                                <span>github</span>
-                            </div>
-                            </a>
-                            <!-- <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
-                            <div class="btn-contact cutoff-br" id="bluesky">
-                                <i class="fa-brands fa-bluesky"></i>
-                                <span>bluesky</span>
-                            </div> -->
-                            </a>
-                        </article>
-                    </div>
-            </div>
-        </section>
-        <hr class="gap">
             </main>
 
             
-            <footer><site-footer></site-footer></footer>
-            
+            <!-- <footer>
+                <div class="big-gen-foot">
+                    <div class="titlestuff">
+                        <h1>tboyj</h1>
+                        <h3>aka jackson philips</h3>
+                    </div>
+                    <div class="gen-foot">
+                    <div class="leftfooter">
+                        <div class="contact-info-footer">
+                            <p class="cif-title">contact</p>
+                            <div class="cif-content">
+                                <a href="mailto:jphilips.dev@gmail.com">email</a>
+                                <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">linkedin</a>
+                                <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">github</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightfooter">
+                        <div class="directory-info-footer">
+                            <p class="dif-title">directory</p>
+                            <div class="dif-content">
+                                <a href="/blog">blog</a>
+                                <a href="/projects">projects</a>
+                                <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </footer> -->
+    <script>
+    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const WORD1 = 'JACKSON';
+    const WORD2 = 'PHILIPS';
+    
+    function rand(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+    
+    function animateTile(tile, finalChar, startDelay) {
+        const shuffleCount = 7;
+        const shuffleInterval = 55;
+    
+        setTimeout(() => {
+        let count = 0;
+        const iv = setInterval(() => {
+            tile.textContent = rand(CHARS);
+            tile.classList.remove('flip');
+            void tile.offsetWidth;
+            tile.classList.add('flip');
+            count++;
+            if (count >= shuffleCount) {
+            clearInterval(iv);
+            setTimeout(() => {
+                tile.textContent = finalChar;
+                tile.classList.remove('flip');
+                void tile.offsetWidth;
+                tile.classList.add('flip');
+            }, shuffleInterval);
+            }
+        }, shuffleInterval);
+        }, startDelay);
+    }
+    
+    function buildRow(id, word, globalDelay) {
+        const row = document.getElementById(id);
+        row.innerHTML = '';
+        word.split('').forEach((letter, i) => {
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.textContent = rand(CHARS);
+        row.appendChild(tile);
+        animateTile(tile, letter, globalDelay + i * 90);
+        });
+    }
+    
+    function run() {
+        buildRow('row1', WORD1, 0);
+        buildRow('row2', WORD2, WORD1.length * 90 * 0.6);
+    }
+    
+    run();
+    </script> 
     <script>
         lucide.createIcons();
     </script>
