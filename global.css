@@ -708,3 +708,8 @@ article.contact {
   max-width: 80%;
   max-height: 80%;
 }
+
+.jp1 {
+  width: calc(2em);
+  height: auto;
+}
