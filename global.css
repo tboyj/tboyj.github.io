@@ -272,7 +272,6 @@ a.hero-btn {
  .hero-wrap {
 position: relative;
   width: 100%;
-  min-height: 94vh;
   background-color: var(--base-black-2);
   overflow: hidden;
   display: flex;
@@ -283,10 +282,9 @@ position: relative;
 }
 
 .hero-left {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-      margin-left: 2em;
   align-items: center;
   justify-content: center;
   z-index: 2;
@@ -377,7 +375,7 @@ position: relative;
 section.hero {
   position: relative;
   width: 100%;
-  min-height: 94vh;
+  min-height: 95vh;
   background-color: var(--base-black-2);
   overflow: hidden;
   display: flex;
@@ -421,8 +419,7 @@ section.hero::after {
     align-items: center;
     text-align: center;
     width: 100%;
-    margin-left: 2em;
-    margin-right: 2em;
+
   }
 
   .hero-links {
@@ -524,6 +521,7 @@ section.hero::after {
   height: 100%;
   z-index: 1;
   inset: 0;
+  filter: blur(0.9px);
 }
 .spitview {
   display: grid;

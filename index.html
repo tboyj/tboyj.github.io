@@ -10,7 +10,7 @@
         <script src="components/navbar.js"></script>
         <link rel="stylesheet" href="global.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        
+        <script src="main.js" defer></script>
         <title>tboyj</title>
 
         <style>
@@ -73,10 +73,11 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
             .hero-tagline .contact-icons {
                 display: flex;
-                gap: 16px;
+                gap: 12px;
                 text-align: center;
                 justify-content: center;
-                padding: 0 0;
+                padding: 12px 0;
+                align-self: center;
             }
             .hero-tagline .contact-icons i {
                 font-size: 2.5em;
@@ -131,6 +132,8 @@
                 color: var(--base-white);
                 transition: color 0.1s ease;
                 cursor: pointer;
+                align-self: center;
+
 
             }
             .contact-icons i:hover {
@@ -143,6 +146,7 @@
                 text-align: center;
                 justify-content: center;
                 padding: 12px 0;
+                align-self: center;
 
             }
 
@@ -163,72 +167,7 @@
         <main>
             <section class="hero">
             <canvas id="bg"></canvas>
-            <script>
-            const canvas = document.getElementById("bg");
-            const ctx = canvas.getContext("2d");
-
-            let w, h;
-            function resize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-            }
-            resize();
-            window.addEventListener("resize", resize);
-
-            let mouse = { x: w, y: h};
-
-            let t = 1;
-
-            // simple pseudo noise (fast + stable)
-            function noise(x, y) {
-            return Math.sin(x * 15.9898 + y * 75.233) * 43758.5453 % 1;
-            }
-
-            function draw() {
-            ctx.clearRect(0, 0, w, h);
-
-            const spacing = 8; // bigger = cleaner
-            const scale = 0.5;
-
-            for (let x = 0; x < w; x += spacing) {
-                for (let y = 0; y < h; y += spacing) {
-
-                // base noise (animated)
-                let n = noise(x * scale + t, y * scale + t);
-
-                // normalize noise
-                n = Math.abs(n);
-
-                // mouse influence (soft)
-
-
-
-
-                // dithering threshold
-                if (n > 0.55) {
-                    const brightness = 45 + n * 50;
-
-                    // subtle red tint
-                    ctx.fillStyle = `rgb(${brightness}, ${brightness * 0.3}, ${brightness * 0.3})`;
-
-                    ctx.beginPath();
-                    ctx.arc(x, y, 1.2, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-                }
-            }
-
-            t += 0.0000000001; // slow movement
-            requestAnimationFrame(draw);
-            }
-
-            draw();
-
-            function openModal(src) {
-                document.getElementById("img01").src = src;
-                document.getElementById("imageModal").style.display = "flex";
-            }
-            </script>
+            
             <div class="hero-wrap">
             <div class="hero-left">
             <h1 class="hero-name">Jackson<br>Philips<span class="cursor"></span></h1>
@@ -249,36 +188,6 @@
                     <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
-                </div>
-            </div>
-            </div>
-        
-            <div class="hero-right">
-                <div class="terminal">
-                    <div class="terminal-header">
-                        <div class="l">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <div class="mid">
-                        <span class="icon"><img src="favicon.ico" width="16" height="16"></span>
-                        <span class="namelol"> — tboyj.github.io — .jmp</span>
-                        </div>
-                        <div class="r"></div>
-                    </div>
-                    <div class="terminal-body">
-                        <p><span class="prompt"><code>$</code></span> <code>field?</code></p>
-                        <p><code>"CompSci"</code></p>
-
-                        <p><span class="prompt"><code>$</code></span> <code>attending?</code></p>
-                        <p><code>"ksu @ main"</code></p>
-
-                        <p><span class="prompt"><code>$</code></span> <code>open to work?</code></p>
-                        <p><code>true</code></p>
-                        <p><span class="prompt"><code>$</code></span> <code><input class="typehere" id="cmdprompt" type="text" width="100%"></code></p>
-
-                    </div>
                 </div>
             </div>
             </div>
@@ -411,16 +320,16 @@
                             </div>
                             </a>
                             <a href="https://www.github.com/tboyj" target="_blank" rel="noreferrer">
-                            <div class="btn-contact" id="github">
+                            <div class="btn-contact cutoff-br" id="github">
                                 <i class="fa-brands fa-github"></i>
                                 <span>github</span>
                             </div>
                             </a>
-                            <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
+                            <!-- <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
                             <div class="btn-contact cutoff-br" id="bluesky">
                                 <i class="fa-brands fa-bluesky"></i>
                                 <span>bluesky</span>
-                            </div>
+                            </div> -->
                             </a>
                         </article>
                     </div>
