@@ -709,7 +709,17 @@ article.contact {
   max-height: 80%;
 }
 
-.jp1 {
+.jp1 img {
+  /* content: url("images/haha.png"); */
   width: calc(2em);
   height: auto;
+  margin-bottom: -5px;
+  transition: all 0.15s;
+}
+.jp1 img:hover {
+  
+  /* content: url("images/hahat.png"); */
+  width: calc(2em);
+  height: auto;
+  transform: rotate(-1.25deg);
 }
