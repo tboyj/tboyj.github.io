@@ -151,7 +151,6 @@
             }
 
             article {
-                width: 75%;
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -159,6 +158,15 @@
 
             p.introduction {
                 line-height: 1.5em;
+            }
+
+            .borderlol {
+                border: 1px solid var(--base-white);
+                padding: 2em;
+                border-radius: 12px;   
+                width: 75%;
+                margin: 0 auto;
+
             }
         </style>
     </head>
@@ -193,7 +201,7 @@
             </div>
         </section>
         <section id="about">
-            <div class="panel">
+            <div class="panel borderlol">
                 <div class="about-header">
                     <h1>about me</h1>
                     <p>i'd love to work for you :O</p>
@@ -211,7 +219,7 @@
             </div>
         </section>
         <section class="tech-section" id="tech-stack">
-            <div class="panel">
+            <div class="panel borderlol">
                 <div class="tech-stack-header">
                     <h1>tech stack</h1>
                     <p>the mandatory stack that keeps me busy</p>
@@ -299,47 +307,30 @@
                 </div>
             </div>
         </section> -->
-        <section class="contact" id="contact">
-            <div class="panel">
-                <div class="contact-header">
-                    <h1>contact</h1>
-                    <p>let's chat (or discuss work)</p>
-                </div>
-                    <div class="content">
-                        <article class="contact">
-                            <a href="mailto:jphilips.dev@gmail.com">
-                            <div class="btn-contact cutoff-tl" id="email">
-                                <i class="fas fa-envelope"></i>
-                                <span>email</span>
-                            </div>
-                            </a>
-                            <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
-                            <div class="btn-contact" id="linkedin">
-                                <i class="fa-brands fa-linkedin"></i>
-                                <span>linkedin</span>
-                            </div>
-                            </a>
-                            <a href="https://www.github.com/tboyj" target="_blank" rel="noreferrer">
-                            <div class="btn-contact cutoff-br" id="github">
-                                <i class="fa-brands fa-github"></i>
-                                <span>github</span>
-                            </div>
-                            </a>
-                            <!-- <a href="https://bsky.app/profile/tboyj.github.io" target="_blank" rel="noreferrer">
-                            <div class="btn-contact cutoff-br" id="bluesky">
-                                <i class="fa-brands fa-bluesky"></i>
-                                <span>bluesky</span>
-                            </div> -->
-                            </a>
-                        </article>
-                    </div>
-            </div>
-        </section>
         <hr class="gap">
             </main>
 
             
-            <footer><site-footer></site-footer></footer>
+            <footer>
+                <div>
+                    <div>
+                        <h1>tboyj</h1>
+                        <h3>jackson philips</h3>
+                    </div>
+                    <div>
+                        
+                        <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:jphilips.dev@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
             
     <script>
         lucide.createIcons();
