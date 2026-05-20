@@ -246,7 +246,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 22px;
+                font-size: 1.75em;
                 font-weight: 900;
                 font-family: var(--font-bricolage);
                 color: var(--base-black);
@@ -284,6 +284,14 @@
             <div class="hero-wrap">
             <div class="hero-left">
             <div class="name-block">
+            <div class="jp1">
+            <img src="images/haha.png" alt="Jackson Philips drawing1">
+            <script>
+              const img = document.querySelector('.jp1 img');
+              img.addEventListener('mouseenter', () => img.src = 'images/hahat.png');
+              img.addEventListener('mouseleave', () => img.src = 'images/haha.png');
+            </script>
+            </div>
             <div class="tile-row" id="row1"></div>
             <div class="tile-row offset" id="row2"></div>
             </div>
