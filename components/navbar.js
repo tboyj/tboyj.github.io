@@ -338,9 +338,6 @@ class SiteNavbar extends HTMLElement {
             <span class="dir-label">main links</span>
               <a href="/blog">blog</a>
               <a href="/projects">projects</a>
-            <span class="dir-label">ways to reach out</span>
-              <a href="/#contact">contact</a>
-              <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
             <span class="dir-label">other</span>
               <a href="/assignments" class="archive">assignments</a>
             </div>
