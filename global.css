@@ -53,7 +53,7 @@ footer
     z-index: 100;
 }
 body {
-    background: var(--base-black-2);
+    background: var(--base-black);
     color: var(--base-white);
     display: flex;
     flex-direction: column;
@@ -272,7 +272,7 @@ a.hero-btn {
  .hero-wrap {
 position: relative;
   width: 100%;
-  background-color: var(--base-black-2);
+  background-color: var(--base-black);
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -288,7 +288,7 @@ position: relative;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  background-color: #0A0A0B;
+  background-color: var(--base-black);
   height: 100vh;
 }
 
@@ -298,7 +298,6 @@ position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-    margin-right: 2em;
 }
 
 .hero-right img {
@@ -319,6 +318,15 @@ position: relative;
   color: var(--accent-1);
   font-family: var(--font-datatype);
   font-size: 16px;
+}
+
+.hero-print {
+  font-family: var(--font-dm, sans-serif);
+    font-size: 1rem;
+    color: var(--base-white);
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.0235em;
 }
 
 .hero-name {
@@ -457,7 +465,7 @@ section.hero {
   display: flex;
   gap: 8px;
   padding: 8px;
-  background: var(--base-black-2);
+  background: var(--base-black);
   justify-content: space-between;
   font-family: var(--font-dm);
   
@@ -643,7 +651,7 @@ article.contact {
 #csh { background: linear-gradient(135deg, #9b4f96, #9b4f96); }
 #unity { background: linear-gradient(135deg, #4a4a4a, #4a4a4a); }
 #git { background: linear-gradient(135deg, #f05033, #f05033); }
-#js { background: linear-gradient(135deg, #f7df1e, #f7df1e); color: var(--base-black-2); }
+#js { background: linear-gradient(135deg, #f7df1e, #f7df1e); color: var(--base-black); }
 #html5 { background: linear-gradient(135deg, #e34f26, #e34f26); }
 #css3 { background: linear-gradient(135deg, #264de4, #264de4); }
 #python { background: linear-gradient(135deg, #f7c948, #f7c948);  }

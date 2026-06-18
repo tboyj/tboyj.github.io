@@ -76,8 +76,6 @@ class SiteNavbar extends HTMLElement {
             display: flex;
             flex-direction: column;
             background: var(--base-black);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top: 1px solid var(--base-black);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             opacity: 0;
             /* transform: translateY(-12px); */
@@ -352,7 +350,7 @@ class SiteNavbar extends HTMLElement {
             <a href="/projects">projects</a>
           </div>
           <div class="contact-dropdown">
-            <button class="cont-drp cutoff-tr"><a href="/#contact">contact</a></button>
+            <button class="cont-drp cutoff-tr"><a href="#">contact</a></button>
             <div class="contact-menu">
             <span class="dir-label">contact me!</span>
               <a href="mailto:jphilips.dev@gmail.com">email</a>

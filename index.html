@@ -226,8 +226,13 @@
             .name-block {
                 display: flex;
                 flex-direction: column;
-                gap: 7px;
-                margin-bottom: 20px;
+                padding: 20px;
+                border-radius:4px;
+            }
+
+            .offset {
+                gap:7px;    
+                margin-top:7px;
             }
             
             .tile-row {
@@ -242,14 +247,14 @@
             .tile {
                 width: 50px;
                 height: 50px;
-                background: var(--base-white);
+                background: var(--accent-1);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 1.75em;
+                font-size: 2em;
                 font-weight: 900;
                 font-family: var(--font-bricolage);
-                color: var(--base-black);
+                color: var(--base-white);
                 position: relative;
                 overflow: hidden;
                 user-select: none;
@@ -273,29 +278,74 @@
                 100% { transform: rotateX(0deg) scaleY(1); opacity: 1; }
             }
 
+            .real-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                user-select: none;
+                filter: grayscale(100%) hue-rotate(0deg) saturate(100%) blur(0.05em);
+            }
+            .real-img img {
+                image-rendering: pixelated;
+                transform: scale(1.05);
+            }
+            .bg-img::after {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background-color: var(--accent-1); /* Red with 50% opacity */
+                mix-blend-mode: multiply; /* Blends red with image */
+                z-index: 2;
+            }
+            .carousel
+            {
+                position: relative;
+                width: 31.25vw; /* equivalent to 600px at 1920px width */
+                aspect-ratio: 16 / 9;
+                background-color: var(--base-black);
+                justify-content: center;
+                align-items: center;
+                z-index: 4;
+                border-radius:.5em;
+
+            }
+            .hero-right img {
+                object-fit: contain;
+                display: block;
+                width: 8vw; 
+                rotate: -4deg;
+                user-select: none;
+                z-index: 4;
+            }
+
         </style>
     </head>
     <body>
         <site-navbar></site-navbar>
         <main>
             <section class="hero">
-            <canvas id="bg"></canvas>
-            
+            <div class="bg-img">
+                <img class="real-img" src="images/bghomepage.jpg" alt="background image">
+            </div>
             <div class="hero-wrap">
             <div class="hero-left">
             <div class="name-block">
-            <div class="jp1">
+            <!-- <div class="jp1">
             <img src="images/haha.png" alt="Jackson Philips drawing1">
             <script>
               const img = document.querySelector('.jp1 img');
               img.addEventListener('mouseenter', () => img.src = 'images/hahat.png');
               img.addEventListener('mouseleave', () => img.src = 'images/haha.png');
             </script>
-            </div>
+            </div> -->
             <div class="tile-row" id="row1"></div>
             <div class="tile-row offset" id="row2"></div>
             </div>
-            <p class="hero-tagline">pursuing a Bachelor of Science in CompSci @ KSU</p>
+            <p class="hero-tagline">Computer Science @ Kent State University</p>
             <div class="hero-links">
                 <!-- <div class="hero-row"> -->
                 <!-- <a class="hero-btn cutoff-tl " href="/blog">blog</a>
@@ -316,150 +366,11 @@
             </div>
             </div>
             <div class="hero-right">
-            <img class="hero-img" src="images/profile-pic.png" alt="Jackson Philips">
+                <img src="images/haha.png" alt="Jackson Philips">
             </div>
             </div>
-        </section>
-        <!-- <section id="about">
-            <div class="panel borderlol">
-                <div class="about-header">
-                    <h1>about me</h1>
-                    <p>i'd love to work for you :O</p>
-                </div>
-                    <div class="content">
-                        <article>
-                            <p class="introduction">
-                                Hey! I'm Jackson, and I'm an incoming freshman at Kent State University who's currently pursuing a Bachelor's in Computer Science. 
-                                I have a passion for building enterprise-grade backend systems, web apps, and everything in between. I also have a love for creating games and music within my free time.
-                                Currently, I'm deepening my foundational programming skills even more with C++, however some things you may already know me for are ChronoQuest 
-                                or my involvement with the foundation of MentalPanda. Don't be afraid to ask me anything, my emails are open and I'm always happy to chat.
-                            </p>
-                        </article>
-                    </div>
-            </div>
-        </section>
-        <section class="tech-section" id="tech-stack">
-            <div class="panel borderlol">
-                <div class="tech-stack-header">
-                    <h1>tech stack</h1>
-                    <p>the mandatory stack that keeps me busy</p>
-                </div>
-                    <div class="content">
-                        <div class="tech-types">
-                            <div class="type" id="java">
-                                <i class="fa-brands fa-java"></i>
-                                <span>Java</span>
-                            </div>
-                            <div class="type" id="maven">
-                                <i class="devicon-maven-plain"></i>
-                                <span>Maven</span>
-                            </div>
-                            <div class="type" id="springboot">
-                                <i class="devicon-spring-plain"></i>
-                                <span>Spring</span>
-                            </div>
-                            <div class="type" id="cpp">
-                                <i class="devicon-cplusplus-plain"></i>
-                                <span>C++</span>
-                            </div>
-                            <div class="type" id="csh">
-                                <i class="devicon-csharp-plain"></i>
-                                <span>C#</span>
-                            </div>
-                            <div class="type" id="unity">
-                                <i class="fa-brands fa-unity"></i>
-                                <span>Unity</span>
-                            </div>
-                            <div class="type" id="git">
-                                <i class="fa-brands fa-git-alt"></i>
-                                <span>Git</span>
-                            </div>
-                            <div class="type" id="js">
-                                <i class="fa-brands fa-js"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="type" id="html5">
-                                <i class="fa-brands fa-html5"></i>
-                                <span>HTML</span>
-                            </div>
-                            <div class="type" id="css3">
-                                <i class="fa-brands fa-css3"></i>
-                                <span>CSS</span>
-                            </div>
-                            <div class="type" id="psql">
-                                <i class="devicon-postgresql-plain"></i>
-                                <span>Postgres</span>
-                            </div>
-                        </div>
-                        </article>
-                    </div>
-                
-            </div>
-        </section> -->
-        <!-- add awards section here -->
-         <!-- <section class="awards-section" id="awards">
-            <div class="panel">
-                <div class="awards-header">
-                    <h1>awards</h1>
-                    <p>the things that make me proud</p>
-                </div>
-                <div class="content">
-< WORK ON THIS LATER !!! TODO !!! WORK ON THIS LATER !!!
-                    <article>
-                        <div class="awards">
-                            <div class="card">
-                            <div class="card-image">
-                                <img src="imgs/awards/r18-wdt-1-2026.webp" alt="Project Thumbnail" onclick="openModal(this.src)">
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="card-title">2026 Regional 18 BPA Web Design Team - 1st Place</h2>
-                            </div>
-                            </div>
-
-                            <div id="imageModal" class="modal" onclick="this.style.display='none'">
-                            <span class="close">&times;</span>
-                            <img class="modal-content" id="img01">
-                            </div>
-
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section> -->
-            </main>
-
-            
-            <!-- <footer>
-                <div class="big-gen-foot">
-                    <div class="titlestuff">
-                        <h1>tboyj</h1>
-                        <h3>aka jackson philips</h3>
-                    </div>
-                    <div class="gen-foot">
-                    <div class="leftfooter">
-                        <div class="contact-info-footer">
-                            <p class="cif-title">contact</p>
-                            <div class="cif-content">
-                                <a href="mailto:jphilips.dev@gmail.com">email</a>
-                                <a href="https://www.linkedin.com/in/jackson-philips" target="_blank" rel="noreferrer">linkedin</a>
-                                <a href="https://github.com/tboyj" target="_blank" rel="noreferrer">github</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rightfooter">
-                        <div class="directory-info-footer">
-                            <p class="dif-title">directory</p>
-                            <div class="dif-content">
-                                <a href="/blog">blog</a>
-                                <a href="/projects">projects</a>
-                                <a href="/documents" target="_blank" rel="noreferrer">resume + cv</a>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </footer> -->
+            </section>
+        </main>
     <script>
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const WORD1 = 'JACKSON';
@@ -517,7 +428,4 @@
         lucide.createIcons();
     </script>
     </body>
-
-
-
 </html>
