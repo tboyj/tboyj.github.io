@@ -142,8 +142,6 @@ class SiteNavbar extends HTMLElement {
           flex-direction: column;
           min-width: 160px;
           background: var(--base-black);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-top: 1px solid var(--base-black);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           opacity: 0;
           padding: 8px 0;
